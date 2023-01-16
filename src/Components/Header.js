@@ -10,7 +10,7 @@ function Header(){
 				<div id="HTR-L" className="header-column1">Home</div>
 				<div id="HTR-M" className="header-column2">Call 99888 55533 to Order Now ... </div>
 				<div id="HTR-R" className="header-column3">
-					<span id="Welcome">Welcome Mr. X</span>
+					<span id="Welcome">Welcome</span>
 					<span id="Login">Login</span>
 				</div>
 			</div>
