@@ -1,0 +1,16 @@
+
+  *.vertical-menu a:hover {
+    background-color: #F2744D;
+  }
+  .vertical-menu a {
+    background-color: #2D92CB;
+    color: white;
+    display: block;
+    padding: 6px;
+    text-decoration: none;
+    text-align: center;
+    border: 1px solid #2D92CB;
+    margin: 2px;
+    font-size: 16px;
+    
+  }

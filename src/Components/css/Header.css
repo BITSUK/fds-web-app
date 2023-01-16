@@ -1,0 +1,44 @@
+.header-container {
+    display: flex;
+    flex-direction: column;
+}
+
+.header-columns {
+    display: flex;
+    flex-direction: row;
+}
+  
+.header-column1 {  
+    width: 20%;
+}
+.header-column2 {
+    width: 45%;
+}
+.header-column3 {
+    width: 35%;
+}
+  
+#HTR-L, #HTR-M, #HTR-R {
+    background-color: #3DA6D2;
+    color: white;
+}
+  
+#Welcome {
+    background: none;
+    float: left;
+}
+  
+#Login {
+    background: none;
+    float: right;
+}
+  
+ 
+#HMR-R {
+    text-align: right;
+}
+ 
+.breadcrumb {
+    width: 100%;
+    background-color: #e5f1f7;
+}

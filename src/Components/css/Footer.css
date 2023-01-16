@@ -1,0 +1,42 @@
+.footer {
+    background-color: #3DA6D2;
+    color: #DBFBF5;
+    font-size: 10px;
+}
+
+.footer-container {
+    display: flex;
+    flex-direction: column;
+}
+
+.footer-3-cols {
+    display: flex;
+    flex-direction: row;
+    height: 60px;
+  }
+
+.column1 {  
+    width: 20%;
+}
+
+.column2 {
+    width: 60%;
+  }
+
+.column3 {
+    width: 20%;
+}
+  
+#FTR-M {
+    font-size: 25px;
+    color: #F3F0A3;
+}
+  
+#social-media-handles {
+    margin-top: 3px;
+    margin-left: 6px;
+}
+
+.copyright-row {
+    width: 100%;
+}
