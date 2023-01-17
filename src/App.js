@@ -19,7 +19,6 @@ function App() {
       
       <div className="row">
         <SideMenu />
-
         <div className="column central-pane" id="BML">
           <CentralPane />
         </div>
