@@ -9,6 +9,9 @@ Praveen R (Student Id: 2022CFSE019)
 
 ## Running the project
 
-To run the project you need Node and npm installed. After that give 'npm start' command on the command line.
-Application will start running on [http://localhost:3000](http://localhost:3000) in the browser.
+To run the project you need Node and npm installed. 
+
+(1) Download or clone from git Hub
+(2) Perform 'git install' on command prompt. This will install all dependencies.
+(3) To run give 'npm start' on the command line. Application will start running on http://localhost:3000.
 

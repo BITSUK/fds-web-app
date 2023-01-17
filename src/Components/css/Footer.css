@@ -16,11 +16,11 @@
   }
 
 .column1 {  
-    width: 20%;
+    width: 15%;
 }
 
 .column2 {
-    width: 55%;
+    width: 60%;
   }
 
 .column3 {
@@ -31,7 +31,11 @@
     font-size: 25px;
     color: #F3F0A3;
 }
-  
+
+#FTR-R {
+  font-size: 12px;  
+}  
+
 #social-media-handles {
     margin-top: 3px;
     margin-left: 6px;
