@@ -3,6 +3,10 @@ import Header from './Components/Header.js';
 import './Components/css/Header.css';
 import SideMenu from './Components/SideMenu.js';
 import './Components/css/SideMenu.css';
+import CentralPane from './Components/CentralPane.js';
+import './Components/css/CentralPane.css';
+import RightPane from './Components/RightPane.js';
+import './Components/css/RightPane.css';
 import Footer from './Components/Footer.js';
 import './Components/css/Footer.css';
 
@@ -17,10 +21,10 @@ function App() {
         <SideMenu />
 
         <div class="column central-pane" id="BML">
-          central pane
+          <CentralPane />
         </div>
         <div class="column right-pane" id="BML">
-          right pane
+          <RightPane />
         </div>
       </div>
       
