@@ -16,8 +16,8 @@ function App() {
       <div class="row">
         <SideMenu />
 
-        <div class="column middle-body" id="BML">
-          middle body
+        <div class="column central-pane" id="BML">
+          central pane
         </div>
         <div class="column right-pane" id="BML">
           right pane
