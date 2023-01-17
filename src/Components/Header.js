@@ -1,4 +1,5 @@
 import React from "react";
+import HomeIcon from './images/Home icon.png';
 import ImgTrainLogo from './images/FDS Train Logo.jpg';
 import ImgFDS from './images/FDS.JPG';
 import ImgDeliverySteps from './images/Delivery Steps.jpg';
@@ -7,9 +8,9 @@ function Header(){
     return (
         <div className="header-container">
 			<div id="HTR" className="header-columns">
-				<div id="HTR-L" className="header-column1">Home</div>
-				<div id="HTR-M" className="header-column2">Call 99888 55533 to Order Now ... </div>
-				<div id="HTR-R" className="header-column3">
+				<div id="HTR-L" className="header-row1-col1"><img id="home-ico" src = {HomeIcon} alt="Home"/></div>
+				<div id="HTR-M" className="header-row1-col2"></div>
+				<div id="HTR-R" className="header-row1-col3">
 					<span id="Welcome">Welcome</span>
 					<span id="Login">Login</span>
 				</div>

@@ -40,3 +40,16 @@
 .copyright-row {
     width: 100%;
 }
+
+
+@media screen and (max-width: 1200px) {
+    #social-media-handles {
+      display: none;    
+    }  
+  }
+
+  @media screen and (max-width: 800px) {
+    .footer-3-cols {
+      display: none;    
+    }  
+  }

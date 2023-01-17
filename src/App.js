@@ -12,24 +12,24 @@ import './Components/css/Footer.css';
 
 function App() {
   return ( 
-    <div class="container"> 
-      <div class="row">
+    <div className="container"> 
+      <div className="row">
         <Header />
       </div>
       
-      <div class="row">
+      <div className="row">
         <SideMenu />
 
-        <div class="column central-pane" id="BML">
+        <div className="column central-pane" id="BML">
           <CentralPane />
         </div>
-        <div class="column right-pane" id="BML">
+        <div className="column right-pane" id="BML">
           <RightPane />
         </div>
       </div>
       
       
-      <div class="row">
+      <div className="row">
         <Footer />
       </div>  
     </div>

@@ -15,3 +15,15 @@
     
   }
 
+  @media screen and (max-width: 1200px) {
+    .vertical-menu a {
+      font-size: 13px;
+    }
+  }
+
+  @media screen and (max-width: 800px) {
+    .vertical-menu a {
+      font-size: 9px;
+    }  
+  }
+

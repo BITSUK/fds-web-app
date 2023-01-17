@@ -30,3 +30,14 @@
   width: 25%;
   height:500px;
 }
+
+@media screen and (max-width: 1200px) {
+  .right-pane {
+    display: none;    
+  }
+
+  .central-pane {
+    width: 85%;
+  }
+
+}
