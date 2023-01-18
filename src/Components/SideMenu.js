@@ -1,18 +1,20 @@
 import React from "react";
 import './css/SideMenu.css';
+import {Link} from "react-router-dom";
 
 function SideMenu(){
     return(
         <>
 			<div className="column left-nav" id="BML">
 				<div className="vertical-menu">
-					<a href="#">Login</a>
-					<a href="#">Order Food</a>
+					<Link to="/login">Login</Link>
+					<Link to="#">Order Food</Link>
 				</div>
 				<div className="vertical-menu-expand">
-					<a href="#">Menu</a>
+					<Link to="#">Menu</Link>
 				</div>
 			</div>
+		
         </>
     )
     

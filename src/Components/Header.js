@@ -4,16 +4,17 @@ import ImgTrainLogo from './images/FDS Train Logo.jpg';
 import ImgFDS from './images/FDS.JPG';
 import ImgDeliverySteps from './images/Delivery Steps.jpg';
 import './css/Header.css';
+import {Link} from "react-router-dom";
 
 function Header(){
     return (
         <div className="header-container">
 			<div id="HTR" className="header-columns">
-				<div id="HTR-L" className="header-row1-col1"><img id="home-ico" src = {HomeIcon} alt="Home"/></div>
+				<div id="HTR-L" className="header-row1-col1"><Link to="/"><img id="home-ico" src = {HomeIcon} alt="Home"/></Link></div>
 				<div id="HTR-M" className="header-row1-col2"></div>
 				<div id="HTR-R" className="header-row1-col3">
 					<span id="Welcome">Welcome</span>
-					<span id="Login"><a href="#">Login / Sign-up</a></span>
+					<span id="Login"><Link to="/login">Login</Link>&nbsp;/&nbsp;<Link to="/signup">Sign-up</Link></span>
 				</div>
 			</div>
 
@@ -26,8 +27,8 @@ function Header(){
 			<div className="header-columns">				
 				<nav aria-label="breadcrumb" className="breadcrumb">
 					<ol className="breadcrumb">
-						<li className="breadcrumb-item"><a href="#">Home</a></li>
-						<li className="breadcrumb-item active" aria-current="page">Order</li>
+						<li className="breadcrumb-item"><Link to="/">Home</Link></li>
+						<li className="breadcrumb-item active" aria-current="page">.</li>
 					</ol>
 				</nav>			
 			</div>

@@ -4,30 +4,54 @@ import SideMenu from './Components/SideMenu.js';
 import CentralPane from './Components/CentralPane.js';
 import RightPane from './Components/RightPane.js';
 import Footer from './Components/Footer.js';
+import Login from './Components/Login.js';
+import Registration from './Components/Registration.js';
+import Blank from './Components/Blank.js';
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route
+} from "react-router-dom";
 
 
-function App() {
+function App() {  
+  
   return ( 
-    <div className="container"> 
-      <div className="row">
-        <Header />
-      </div>
-      
-      <div className="row">
-        <SideMenu />
-        <div className="column central-pane" id="BML">
-          <CentralPane />
+    <Router>
+      <div className="container"> 
+        <div className="row">
+          <Header />
         </div>
-        <div className="column right-pane" id="BML">
-          <RightPane />
+        
+        <div className="row">
+          <SideMenu />
+          
+          <div className="column central-pane" id="BML">
+            {/* Routing logic for the central pane */}
+            <Routes>
+                <Route exact path="/" element={<CentralPane />}/>
+                <Route exact path="/login" element={<Login />}/>
+                <Route exact path="/signup" element={<Registration />}/>
+            </Routes>
+          </div>
+
+          <div className="column right-pane" id="BML">
+            
+            {/* Routing logic for the central pane */}
+            <Routes>
+                <Route exact path="/" element={<RightPane />}/>
+                <Route exact path="/login" element={<Blank message="Enter userid and password to login."/>}/>
+                <Route exact path="/signup" element={<Blank message="Enter user details for sign-up. You can register as a customer or as a restaurant. Registration as a restaurant will be validated and approved upon submission."/>}/>
+            </Routes>
+          </div>
         </div>
+        
+        
+        <div className="row">
+          <Footer />
+        </div>  
       </div>
-      
-      
-      <div className="row">
-        <Footer />
-      </div>  
-    </div>
+    </Router>
   );
 }
 
