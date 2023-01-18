@@ -49,6 +49,11 @@
 #Login {
     background: none;
     float: right;
+    padding-right: 5px;
+}
+
+#Login a {
+    color: white;
 }
   
  

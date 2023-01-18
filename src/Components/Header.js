@@ -13,7 +13,7 @@ function Header(){
 				<div id="HTR-M" className="header-row1-col2"></div>
 				<div id="HTR-R" className="header-row1-col3">
 					<span id="Welcome">Welcome</span>
-					<span id="Login">Login</span>
+					<span id="Login"><a href="#">Login / Sign-up</a></span>
 				</div>
 			</div>
 
