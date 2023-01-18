@@ -6,7 +6,7 @@ function SearchInput(){
         <>
 			<div id="order-bar">
 				Order Now &nbsp;&nbsp;
-				<input type="radio" id="radioPNR" name="search-options" value="PNR" checked/>
+				<input type="radio" id="radioPNR" name="search-options" value="PNR" defaultChecked/>
 				&nbsp;
 				<label htmlFor="radioPNR">PNR</label>
 				&nbsp;&nbsp;&nbsp;

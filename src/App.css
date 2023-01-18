@@ -21,18 +21,18 @@
 .left-nav {
   width: 15%;
   flex: 1 1 auto;
-  height:560px;
+  height:575px;
 }
 
 .central-pane {
   width: 60%;
-  height:560px;
+  height:575px;
 }
 
 .right-pane {
   width: 25%;
   flex: 1 1 auto;
-  height:560px;
+  height:575px;
 }
 
 @media screen and (max-width: 1200px) {
@@ -43,5 +43,27 @@
   .central-pane {
     width: 85%;
   }
+
+}
+@media screen and (max-width: 500px) {
+  .column {
+    float: none;
+  }
+
+  .left-nav {
+    height:auto;
+    width: 15%;
+    border: none;
+  }
+  
+  .central-pane {
+    height:auto;  
+    width: 100%;
+  }
+  
+  .right-pane {
+    height:auto;
+  }
+
 
 }

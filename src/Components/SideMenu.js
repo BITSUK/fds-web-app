@@ -9,6 +9,9 @@ function SideMenu(){
 					<a href="#">Login</a>
 					<a href="#">Order Food</a>
 				</div>
+				<div className="vertical-menu-expand">
+					<a href="#">Menu</a>
+				</div>
 			</div>
         </>
     )
