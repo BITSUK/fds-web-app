@@ -1,4 +1,5 @@
 import React from "react";
+import './css/SideMenu.css';
 
 function SideMenu(){
     return(

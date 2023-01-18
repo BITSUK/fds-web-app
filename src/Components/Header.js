@@ -3,6 +3,7 @@ import HomeIcon from './images/Home icon.png';
 import ImgTrainLogo from './images/FDS Train Logo.jpg';
 import ImgFDS from './images/FDS.JPG';
 import ImgDeliverySteps from './images/Delivery Steps.jpg';
+import './css/Header.css';
 
 function Header(){
     return (

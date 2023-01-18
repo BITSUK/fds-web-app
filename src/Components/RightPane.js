@@ -1,5 +1,6 @@
 import React from "react";
 import OfferItem from "./OfferItem.js";
+import './css/RightPane.css';
 
 function RightPane(){
     return(

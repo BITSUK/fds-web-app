@@ -1,5 +1,6 @@
 import React from "react";
 import process from './images/process.jpg'
+import './css/CustomerJourney.css';
 
 export default function CustomerJourney(){
 
