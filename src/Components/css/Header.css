@@ -21,6 +21,10 @@
 #home-ico {
     background: transparent;
 }
+#home-ico:hover {
+    transform: scale(1.2);
+    cursor: pointer;
+}
  
 #HTR-L, #HTR-M, #HTR-R {
     background-color: #3DA6D2;
@@ -54,7 +58,7 @@
  
 .breadcrumb {
     width: 100%;
-    background-color: #d0e6f1; 
+    background-color: white;
     margin: 0px;
     padding: 0px;    
 }

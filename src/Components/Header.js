@@ -23,8 +23,13 @@ function Header(){
 				<div id="HMR-R" className="header-column3"><img src = {ImgDeliverySteps} alt="Delivery Steps"/></div>
 			</div>
 
-			<div className="header-columns">
-				<div className="breadcrumb">Home\</div>				
+			<div className="header-columns">				
+				<nav aria-label="breadcrumb" className="breadcrumb">
+					<ol class="breadcrumb">
+						<li class="breadcrumb-item"><a href="#">Home</a></li>
+						<li class="breadcrumb-item active" aria-current="page">Order</li>
+					</ol>
+				</nav>			
 			</div>
 		</div>
     )

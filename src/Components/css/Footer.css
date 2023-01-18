@@ -32,6 +32,11 @@
     color: #F3F0A3;
 }
 
+.footer-3-cols img:hover{
+  transform: scale(1.2);
+  cursor: pointer;
+}
+
 #FTR-R {
   font-size: 12px;  
 }  
