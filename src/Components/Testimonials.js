@@ -5,7 +5,14 @@ function Testimonials(){
     //carousel referred taken from https://www.w3schools.com/bootstrap/bootstrap_carousel.asp
     return(
         <>           
-            <div id="myCarousel" className="carousel carousel-dark slide" data-ride="carousel">
+            <div id="myCarousel" className="carousel slide" data-ride="carousel">
+                <ol class="carousel-indicators">
+                    <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+                    <li data-target="#myCarousel" data-slide-to="1"></li>
+                    <li data-target="#myCarousel" data-slide-to="2"></li>
+                    <li data-target="#myCarousel" data-slide-to="3"></li>
+                    <li data-target="#myCarousel" data-slide-to="4"></li>                    
+                </ol>
                 <div className="carousel-inner" >
 
                     <div className="item active">
