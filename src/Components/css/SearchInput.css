@@ -34,3 +34,12 @@
   background-color: #F2744D;
   border-color: #F2744D;
 }
+
+@media screen and (max-width: 500px) {
+  #OrderNowText {
+    display: none;
+  }
+  #order-bar label{
+    font-size: 10px;
+  }
+}

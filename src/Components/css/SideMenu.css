@@ -43,7 +43,7 @@
 
   @media screen and (max-width: 800px) {
     .vertical-menu a {
-      font-size: 9px;
+      font-size: 10px;
     }  
   }
 
@@ -55,5 +55,6 @@
 
     .vertical-menu-expand a {
       display: block;
+      font-size: 10px;
     }
   }
