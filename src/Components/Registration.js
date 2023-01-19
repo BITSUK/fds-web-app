@@ -27,14 +27,17 @@ export default function Registration() {
             </div>            
             <div className="reg-form-components">
                 <label htmlFor="regFormUserid" className="form-label">User</label>
-                <input type="text" className="form-control" id="regFormUserid" placeholder="userid"/>
+                <input type="text" className="form-control" id="regFormUserid" placeholder="userid/mobile/email"/>
             </div>
             <div className="reg-form-components">
                 <label htmlFor="regFormPassword1" className="form-label">Password</label>
-                <input type="text" className="form-control" id="regFormPassword1" placeholder="password"/>
+                <div>
+                    <input type="text" className="form-control fld-password" id="regFormPassword1" placeholder="password"/>
+                    <input type="password" className="form-control fld-password" id="regFormPassword2" placeholder="repeat"/>
+                </div>
             </div>            
             <div className="reg-form-components">
-                <label htmlFor="regFormMobile" className="form-label">Mobile Number</label>
+                <label htmlFor="regFormMobile" className="form-label">Mobile</label>
                 <input type="text" className="form-control" id="regFormMobile" placeholder="mobile number"/>
             </div>
             <div className="reg-form-components">
@@ -42,9 +45,9 @@ export default function Registration() {
                 <input type="text" className="form-control" id="regFormEmail" placeholder="xyz@gmail.com"/>
             </div>            
             <div className="reg-form-components">
-                <Link to="#" class="btn btn-info" role="button" onClick={handleSignup}>Register</Link>
+                <Link to="#" class="btn btn-primary" role="button" onClick={handleSignup}>Register</Link>
                 &nbsp;&nbsp;
-                <Link to="/" class="btn btn-info" role="button">Cancel</Link>
+                <Link to="/" class="btn btn-danger" role="button">Cancel</Link>
             </div>
         </div>
     </div>
