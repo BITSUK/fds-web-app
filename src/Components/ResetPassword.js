@@ -33,9 +33,9 @@ export default function ResetPassword() {
                 </div>            
             </fieldset>
             <div className="reset-form-components">
-                <Link to="#" class="btn btn-primary" role="button" onClick={handleResetPassword}>Submit</Link>
+                <Link to="#" className="btn btn-primary" role="button" onClick={handleResetPassword}>Submit</Link>
                 &nbsp;&nbsp;
-                <Link to="/" class="btn btn-danger" role="button">Cancel</Link>
+                <Link to="/" className="btn btn-danger" role="button">Cancel</Link>
             </div>
 
         </div>

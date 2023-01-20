@@ -45,9 +45,9 @@ export default function Registration() {
                 <input type="text" className="form-control" id="regFormEmail" placeholder="xyz@gmail.com"/>
             </div>            
             <div className="reg-form-components">
-                <Link to="#" class="btn btn-primary" role="button" onClick={handleSignup}>Register</Link>
+                <Link to="#" className="btn btn-primary" role="button" onClick={handleSignup}>Register</Link>
                 &nbsp;&nbsp;
-                <Link to="/" class="btn btn-danger" role="button">Cancel</Link>
+                <Link to="/" className="btn btn-danger" role="button">Cancel</Link>
             </div>
         </div>
     </div>

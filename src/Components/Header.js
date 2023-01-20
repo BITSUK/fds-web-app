@@ -5,15 +5,20 @@ import ImgFDS from './images/FDS.JPG';
 import ImgDeliverySteps from './images/Delivery Steps.jpg';
 import './css/Header.css';
 import {Link} from "react-router-dom";
+import { useContext } from 'react';
+import { UserContext } from './Contexts/UserContext.js';
 
 function Header(){
+	const [userContext, setUserContext] = useContext(UserContext);	
+	
     return (
         <div className="header-container">
 			<div id="HTR" className="header-columns">
+				
 				<div id="HTR-L" className="header-row1-col1"><Link to="/"><img id="home-ico" src = {HomeIcon} alt="Home"/></Link></div>
 				<div id="HTR-M" className="header-row1-col2"></div>
 				<div id="HTR-R" className="header-row1-col3">
-					<span id="Welcome">Welcome</span>
+					<span id="Welcome">Welcome {userContext.name} </span>
 					<span id="Login"><Link to="/login">Login</Link>&nbsp;/&nbsp;<Link to="/signup">Sign-up</Link></span>
 				</div>
 			</div>

@@ -1,12 +1,26 @@
 import React from 'react'
 import './css/Login.css';
 import {Link} from "react-router-dom";
+import {useContext} from "react";
+import { UserContext } from './Contexts/UserContext.js';
 
 export default function Login() {
     
+    const [userContext, setUserContext] = useContext(UserContext);	
+
     const handleLogin = (event) => {
-        event.preventDefault();
-        alert("Login button clicked");        
+
+        const defaultUser2 = {
+            uid: "Guest2",
+            name: "User-Guest2",
+          }   
+        //   This two lines are just to set a dummy user context (state),
+        //   in final state we will be calling a backend API to validate user name and password
+        defaultUser2.uid = document.getElementById("loginFormUserId").value ;        
+        defaultUser2.name = "User-" + document.getElementById("loginFormUserId").value;        
+        event.preventDefault();                     
+        setUserContext(defaultUser2);   
+        alert("Login successful!   " + defaultUser2.name)     ;
     }    
 
     return (
@@ -21,11 +35,11 @@ export default function Login() {
                 <input type="password" className="form-control" id="loginFormPassword" placeholder="password"/>
             </div>
             <div className="login-form-components">
-                <Link to="#" class="btn btn-primary" role="button" onClick={handleLogin}>Login</Link>
+                <Link to="/#" className="btn btn-primary" role="button" onClick={handleLogin}>Login</Link>
                 &nbsp;&nbsp;
-                <Link to="/signup" class="btn btn-success" role="button">Sign-up</Link>
+                <Link to="/signup" className="btn btn-success" role="button">Sign-up</Link>
                 &nbsp;&nbsp;
-                <Link to="/forgot-password" class="btn btn-danger" role="button">Forgot Password</Link>
+                <Link to="/forgot-password" className="btn btn-danger" role="button">Forgot Password</Link>
             </div>
         </div>
     </div>
