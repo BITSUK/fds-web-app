@@ -4,7 +4,7 @@ import {Link} from "react-router-dom";
 
 export default function Registration() {
     
-    const handleSignup = (event) => {
+    const handleRegistration = (event) => {
         alert("Resigter button clicked");        
     }
     
@@ -45,9 +45,9 @@ export default function Registration() {
                 <input type="text" className="form-control" id="regFormEmail" placeholder="xyz@gmail.com"/>
             </div>            
             <div className="reg-form-components">
-                <Link to="#" className="btn btn-primary" role="button" onClick={handleSignup}>Register</Link>
+                <Link to="#" className="btn btn-primary" role="button" onClick={handleRegistration}>Register</Link>
                 &nbsp;&nbsp;
-                <Link to="/" className="btn btn-danger" role="button">Cancel</Link>
+                <Link to="/login" className="btn btn-danger" role="button">Cancel</Link>
             </div>
         </div>
     </div>

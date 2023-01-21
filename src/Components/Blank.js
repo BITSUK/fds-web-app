@@ -6,13 +6,19 @@ import { MessageContext } from './Contexts/MessageContext.js';
 
 export default function Blank(props) {
 
-  var c = "alert " + props.alertType;
+const message = useContext(MessageContext);	
 
-  return (
-    <div className="blank-container">
-      <div class={c} role="alert">
+var c1 = "alert " + message.alertType;
+var c2 = "alert " + props.alertType;
+
+return (
+    <div className="blank-container">      
+      <div className={c2} role="alert">
            {props.message}
-      </div>     
+      </div>    
+      <div className={c1} role="alert">
+           {message.alertMessage}
+      </div> 
     </div>
   )
 }
@@ -24,7 +30,7 @@ Blank.propTypes = {
 
 Blank.defaultProps = {
   alertType: "alert-light",
-  message: 'no message'
+  message: ''
 };
 
 // Refer bootstrap Alert Type values at https://getbootstrap.com/docs/4.0/components/alerts/

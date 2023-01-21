@@ -8,6 +8,7 @@ import Login from './Components/Login.js';
 import Registration from './Components/Registration.js';
 import Blank from './Components/Blank.js';
 import ResetPassword from './Components/ResetPassword.js';
+import OrderFood from './Components/OrderFood.js';
 import {
   BrowserRouter as Router,
   Routes,
@@ -19,15 +20,24 @@ import { useState} from "react";
 
 function App() {  
 
+  // This user object can be centrally stored and imported where needed
   const defaultUser1 = {
-    uid: "Guest1",
-    name: "User-Guest1",
-  }
-  
+    uid: "Guest",
+    name: "Guest",
+    isLoggedIn: false
+  }  
   const [user, setUser] = useState(defaultUser1);
+  
+  // This user object can be centrally stored and imported where needed
+  const defaultMessage1 = {
+    alertMessage: "",
+    alertType: "alert-light",
+  }
+  const [message, setMessage] = useState(defaultMessage1);
 
   return ( 
     <UserContext.Provider value={[user, setUser]}> 
+    <MessageContext.Provider value={[message, setMessage]}> 
     <Router>
         <div className="container"> 
           <div className="row">
@@ -37,25 +47,23 @@ function App() {
           <div className="row">
             <SideMenu />
             
-            <div className="column central-pane" id="BML">
-              {/* Routing logic for the central pane */}
+            <div className="column central-pane" id="BMM">              
               <Routes>
-                  <Route exact path="/" element={<CentralPane />}/>
+                  <Route exact path="/" element={<CentralPane />}/>                  
                   <Route exact path="/login" element={<Login />}/>
-                  <Route exact path="/signup" element={<Registration />}/>
+                  <Route exact path="/register" element={<Registration />}/>
                   <Route exact path="/forgot-password" element={<ResetPassword />}/>
+                  <Route exact path="/order-food" element={<OrderFood />}/>
               </Routes>
             </div>
 
-            
-            <div className="column right-pane" id="BML">
-              
-              {/* Routing logic for the central pane */}
+            <div className="column right-pane" id="BMR">
               <Routes>
                   <Route exact path="/" element={<RightPane />}/>
-                  <Route exact path="/login" element={<Blank message="Enter userid and password to login." />}/>
-                  <Route exact path="/signup" element={<Blank message="Enter user details for sign-up. You can register as a customer or as a restaurant. Registration as a restaurant will be validated and approved upon submission."/>}/>
-                  <Route exact path="/forgot-password" element={<Blank message="Enter OTP sent on mobile to allow resetting of password." alertType="alert-info"/>}/>
+                  <Route exact path="/order-food" element={<RightPane />}/>
+                  <Route exact path="/login" element={<Blank message="Enter username and password to login."/>}/>
+                  <Route exact path="/register" element={<Blank message="Enter user details to register. Restuarant registration will involve approval."/>}/>
+                  <Route exact path="/forgot-password" element={<Blank message="Reset password using OTP authentication. Password should be atleast 8 character."/>}/>
               </Routes>
             </div>
             
@@ -67,6 +75,7 @@ function App() {
           </div>  
         </div>
     </Router>
+    </MessageContext.Provider>
     </UserContext.Provider>
   );
 }

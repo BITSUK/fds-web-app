@@ -7,10 +7,29 @@ import './css/Header.css';
 import {Link} from "react-router-dom";
 import { useContext } from 'react';
 import { UserContext } from './Contexts/UserContext.js';
+import {logoutUser} from './Util.js';
 
 function Header(){
 	const [userContext, setUserContext] = useContext(UserContext);	
-	
+
+	// This function is repeated in Sidemenu and Header, to be moved into a common module
+	const handleLogout = (event) => {
+
+		const currentUser = {
+            uid: userContext.uid,
+            name: userContext.name,
+            isLoggedIn: userContext.isLoggedIn
+          } 
+		
+		currentUser.uid = "Guest";
+		currentUser.name = "Guest";  
+		currentUser.isLoggedIn = false;
+
+		setUserContext(currentUser);
+
+	}
+
+
     return (
         <div className="header-container">
 			<div id="HTR" className="header-columns">
@@ -18,8 +37,12 @@ function Header(){
 				<div id="HTR-L" className="header-row1-col1"><Link to="/"><img id="home-ico" src = {HomeIcon} alt="Home"/></Link></div>
 				<div id="HTR-M" className="header-row1-col2"></div>
 				<div id="HTR-R" className="header-row1-col3">
-					<span id="Welcome">Welcome {userContext.name} </span>
-					<span id="Login"><Link to="/login">Login</Link>&nbsp;/&nbsp;<Link to="/signup">Sign-up</Link></span>
+					<span id="Welcome">Welcome {userContext.name} </span>					
+					{userContext.isLoggedIn ? (
+						<span id="Logout"><Link to="/" onClick={logoutUser}>Logout</Link></span>
+					) : (
+						<span id="Login"><Link to="/login">Login</Link>&nbsp;/&nbsp;<Link to="/register">Register</Link></span>
+      				)}
 				</div>
 			</div>
 
