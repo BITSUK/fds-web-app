@@ -12,9 +12,9 @@ export default function Registration() {
     <div>
         <div className="reg-form-container">            
             <div className="reg-form-components">
-				<input type="radio" id="radioCustomer" name="role-type" value="Customer" defaultChecked/> &nbsp;
+				<input type="checkbox" id="radioCustomer" name="role-type" value="Customer" defaultChecked/> &nbsp;
                 <label htmlFor="radioCustomer">Customer</label>	&nbsp;
-				<input type="radio" id="radioRestaurant" name="role-type" value="Restaurant"/> &nbsp;
+				<input type="checkbox" id="radioRestaurant" name="role-type" value="Restaurant"/> &nbsp;
                 <label htmlFor="radioRestaurant">Restaurant</label>			
 			</div>
             <div className="reg-form-components">

@@ -34,7 +34,7 @@ function SideMenu(){
 					):(
 						<Link to="/login">Login</Link>
 					)}
-					<Link to="#">Order Food</Link>
+					<Link to="/order-food">Order Food</Link>
 				</div>
 				<div className="vertical-menu-expand">
 					<Link to="#">Menu</Link>
