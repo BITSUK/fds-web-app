@@ -8,7 +8,7 @@ function RightPane(){
             <OfferItem imageName="Offer1.png" />
             <OfferItem imageName="Offer2.png" />
             <OfferItem imageName="Offer3.png" />
-            <OfferItem imageName="Offer4.png" />            
+            {/* <OfferItem imageName="Offer4.png" />             */}
         </>
     )    
 }
