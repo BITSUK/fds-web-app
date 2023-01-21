@@ -39,7 +39,7 @@ function Header(){
 				<div id="HTR-R" className="header-row1-col3">
 					<span id="Welcome">Welcome {userContext.name} </span>					
 					{userContext.isLoggedIn ? (
-						<span id="Logout"><Link to="/" onClick={logoutUser}>Logout</Link></span>
+						<span id="Logout"><Link to="/" onClick={handleLogout}>Logout</Link></span>
 					) : (
 						<span id="Login"><Link to="/login">Login</Link>&nbsp;/&nbsp;<Link to="/register">Register</Link></span>
       				)}

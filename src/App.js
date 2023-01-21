@@ -61,7 +61,7 @@ function App() {
               <Routes>
                   <Route exact path="/" element={<RightPane />}/>
                   <Route exact path="/order-food" element={<RightPane />}/>
-                  <Route exact path="/login" element={<Blank message="Enter username and password to login."/>}/>
+                  <Route exact path="/login" element={<Blank message="Enter username and password to login. Password min 8 chars."/>}/>
                   <Route exact path="/register" element={<Blank message="Enter user details to register. Restuarant registration will involve approval."/>}/>
                   <Route exact path="/forgot-password" element={<Blank message="Reset password using OTP authentication. Password should be atleast 8 character."/>}/>
               </Routes>
