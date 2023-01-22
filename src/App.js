@@ -1,13 +1,13 @@
 import './App.css';
-import Header from './Components/Header.js';
-import SideMenu from './Components/SideMenu.js';
-import CentralPane from './Components/CentralPane.js';
-import RightPane from './Components/RightPane.js';
-import Footer from './Components/Footer.js';
-import Login from './Components/Login.js';
-import Registration from './Components/Registration.js';
-import Blank from './Components/Blank.js';
-import ResetPassword from './Components/ResetPassword.js';
+import Header from './Components/Header/Header.js';
+import SideMenu from './Components/SideMenu/SideMenu.js';
+import CentralPane from './Components/CentralPane/CentralPane.js';
+import RightPane from './Components/RightPane/RightPane.js';
+import Footer from './Components/Footer/Footer.js';
+import Login from './Components/LoginRegistration/Login.js';
+import Registration from './Components/LoginRegistration/Registration.js';
+import Blank from './Components/RightPane/Blank.js';
+import ResetPassword from './Components/LoginRegistration/ResetPassword.js';
 import OrderFood from './Components/OrderFood.js';
 import {
   BrowserRouter as Router,

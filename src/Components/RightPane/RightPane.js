@@ -1,6 +1,6 @@
 import React from "react";
 import OfferItem from "./OfferItem.js";
-import './css/RightPane.css';
+import './RightPane.css';
 
 function RightPane(){
     return(
@@ -8,7 +8,6 @@ function RightPane(){
             <OfferItem imageName="Offer1.png" />
             <OfferItem imageName="Offer2.png" />
             <OfferItem imageName="Offer3.png" />
-            {/* <OfferItem imageName="Offer4.png" />             */}
         </>
     )    
 }

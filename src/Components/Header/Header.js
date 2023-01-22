@@ -3,11 +3,10 @@ import HomeIcon from './images/Home icon.png';
 import ImgTrainLogo from './images/FDS Train Logo.jpg';
 import ImgFDS from './images/FDS.JPG';
 import ImgDeliverySteps from './images/Delivery Steps.jpg';
-import './css/Header.css';
+import './Header.css';
 import {Link} from "react-router-dom";
 import { useContext } from 'react';
-import { UserContext } from './Contexts/UserContext.js';
-import {logoutUser} from './Util.js';
+import { UserContext } from '../Contexts/UserContext.js';
 
 function Header(){
 	const [userContext, setUserContext] = useContext(UserContext);	
@@ -26,7 +25,7 @@ function Header(){
 		currentUser.isLoggedIn = false;
 
 		setUserContext(currentUser);
-
+		alert("Succesfully logged out.");
 	}
 
 

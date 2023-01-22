@@ -1,5 +1,5 @@
 import React from "react";
-import './css/OfferItem.css';
+import './OfferItem.css';
 
 export default function OfferItem(props){
     return(

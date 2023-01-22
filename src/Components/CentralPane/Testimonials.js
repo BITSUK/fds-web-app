@@ -1,7 +1,7 @@
 import React from "react";
-import './css/Testimonials.css';
+import './Testimonials.css';
 
-function Testimonials(){
+export default function Testimonials(){
     //carousel referred taken from https://www.w3schools.com/bootstrap/bootstrap_carousel.asp
     return(
         <>           
@@ -48,5 +48,3 @@ function Testimonials(){
     )
     
 }
-
-export default Testimonials;

@@ -1,8 +1,8 @@
 import React from 'react'
-import './css/Blank.css';
+import './Blank.css';
 import PropTypes from 'prop-types';
 import {useContext} from "react";
-import { MessageContext } from './Contexts/MessageContext.js';
+import { MessageContext } from '../Contexts/MessageContext.js';
 
 export default function Blank(props) {
 

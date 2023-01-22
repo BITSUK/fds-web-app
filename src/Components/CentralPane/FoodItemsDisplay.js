@@ -3,7 +3,7 @@ import React from "react";
 import food1 from './images/food/1.png'
 import food2 from './images/food/2.png'
 import food3 from './images/food/3.png'
-import './css/FoodItemsDisplay.css';
+import './FoodItemsDisplay.css';
 
 export default function FoodItemsDisplay(){
     return (

@@ -1,7 +1,7 @@
 import React from "react";
 import ImgSocialMedia from './images/social media.JPG';
 import ImgClickHere from './images/click here.JPG';
-import './css/Footer.css';
+import './Footer.css';
 
 function Footer(){
     return (

@@ -12,6 +12,6 @@ Praveen R (Student Id: 2022CFSE019)
 To run the project you need Node and npm installed. 
 
 (1) Download or clone from git Hub
-(2) Perform 'git install' on command prompt. This will install all dependencies.
+(2) Perform 'npm install' on command prompt. This will install all dependencies.
 (3) To run give 'npm start' on the command line. Application will start running on http://localhost:3000.
 

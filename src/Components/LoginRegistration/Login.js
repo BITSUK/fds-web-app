@@ -1,9 +1,9 @@
 import React from 'react';
 // import ReactDOM from 'react-dom/client';
-import './css/Login.css';
+import './Login.css';
 import {Link, useNavigate } from "react-router-dom";
 import {useContext} from "react";
-import { UserContext } from './Contexts/UserContext.js';
+import { UserContext } from '../Contexts/UserContext.js';
 // import OrderFood from './OrderFood.js';
 // import RenderCentralPane from './RenderCentralPane.js';
 // import { MessageContext } from './Contexts/MessageContext.js';
@@ -84,6 +84,10 @@ export default function Login() {
             </div>
             <br />
             <div>Click <Link to="/register"><b>here</b></Link> to register.</div>
+            <br />
+            <br />
+            <br />
+            <br />
         </div>
     </div>
   )

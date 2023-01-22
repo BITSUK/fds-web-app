@@ -1,5 +1,5 @@
 import React from 'react'
-import './css/Registration.css';
+import './Registration.css';
 import {Link} from "react-router-dom";
 
 export default function Registration() {
@@ -46,7 +46,7 @@ export default function Registration() {
                 <input type="text" className="form-control" id="regFormEmail" placeholder="xyz@gmail.com"/>
             </div>            
             <div className="reg-form-components">
-                <label htmlFor="regFormUserid" className="form-label">User</label>
+                <label htmlFor="regFormUserid" className="form-label">Userid</label>
                 <input type="text" className="form-control" id="regFormUserid" placeholder="userid/mobile/email"/>
             </div>
             <div className="reg-form-components">

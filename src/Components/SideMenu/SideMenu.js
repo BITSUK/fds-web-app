@@ -1,8 +1,8 @@
 import React from "react";
-import './css/SideMenu.css';
+import './SideMenu.css';
 import {Link} from "react-router-dom";
 import { useContext } from 'react';
-import { UserContext } from './Contexts/UserContext.js';
+import { UserContext } from '../Contexts/UserContext.js';
 
 function SideMenu(){
 
@@ -22,6 +22,7 @@ function SideMenu(){
 		currentUser.isLoggedIn = false;
 
 		setUserContext(currentUser);
+		alert("Succesfully logged out.");
 
 	}
 
