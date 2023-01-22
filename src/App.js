@@ -8,7 +8,7 @@ import Login from './Components/LoginRegistration/Login.js';
 import Registration from './Components/LoginRegistration/Registration.js';
 import Blank from './Components/RightPane/Blank.js';
 import ResetPassword from './Components/LoginRegistration/ResetPassword.js';
-import OrderFood from './Components/OrderFood.js';
+import OrderFood from './Components/OrderFood/OrderFood.js';
 import {
   BrowserRouter as Router,
   Routes,
