@@ -1,27 +1,40 @@
-import React, {useEffect} from 'react';
+import React from 'react';
 import './Login.css';
 import {Link, useNavigate } from "react-router-dom";
 import {useContext} from "react";
 import { UserContext } from '../Contexts/UserContext.js';
 import { AlertContext } from '../Contexts/AlertContext.js';
 import Alert from "../Alert/Alert.js";
+import { useState} from "react";
 
 export default function Login(props) {
     
     // Obtain alert context and extract values in a local variable
     const [userContext, setUserContext] = useContext(UserContext);	
 
+    //initialise fetched user    
+    const [fetchedUser, setFetchedUser] = useState({
+        userId: "Init",
+        name: "Initial",
+        roles: ["Customer"],   
+        status: "1"        
+    });
+    console.log("Fetched user initial value");
+    console.log(fetchedUser);
+
     // Obtain alert context and define a local alert object    
     const [alertMessage, setAlert] = useContext(AlertContext);
     const a = {
-        alertType: alert.alertType,
-        alertMessage: alert.alertMessage
+        alertType: alertMessage.alertType,
+        alertMessage: alertMessage.alertMessage
     } 
 
-    var fetcheduserId = "";
-    var fetcheduserName  = "";
-    var fetcheduserRoles  = "";
-    var fetcheduserStatus  = "";
+    // let fetchedUser = {
+    //     userId: "",
+    //     name: "",
+    //     roles: false,   
+    //     status: " "        
+    // }
 
     const navigate = useNavigate();
 
@@ -40,7 +53,7 @@ export default function Login(props) {
         var inputPassword = document.getElementById("loginFormPassword").value;
         
         //Validate the user id and password
-        if (inputUserId == "" || inputPassword == "") {
+        if (inputUserId === "" || inputPassword === "") {
             // alert("Userid or password not entered");
             a.alertMessage = "Userid or password not entered";
             a.alertType = "error";
@@ -50,30 +63,41 @@ export default function Login(props) {
             // Call a backend API to validate userid and password and to fetch customer details
             // API endpoint .../login
             //Refer: https://reactjs.org/docs/faq-ajax.html#how-can-i-make-an-ajax-call
-            fetch("https://run.mocky.io/v3/0bf5e410-3e85-4145-b11d-a3e28caea78b")
-                .then(response => {
-                     return response.json(); 
-                })
-                .then(data => {
-                    fetcheduserId = data.userId;
-                    fetcheduserName = data.userName;
-                    fetcheduserRoles = data.userRoles;
-                    fetcheduserStatus = data.userStatus;
-                    console.log("Successfully fetched: " + fetcheduserId + " " + fetcheduserName);
-                })
-                .catch(error => {
-                    //console.log ("Error calling /login endpoint");
-                });
-               
+            let loginURL = "https://run.mocky.io/v3/0bf5e410-3e85-4145-b11d-a3e28caea78b";
+            fetch(loginURL)            
+            .then(response => response.json())
+            .then(function(data) {
+                console.log("Got API Response: ");
+                console.log(data);
+                // Now how to pass response to local variable in the function? Local variable are not accessible!
+                //Ref: https://beta.reactjs.org/learn/updating-objects-in-state
+
+                let tempUser = {
+                    userId: data.userId,
+                    name: data.userName,
+                    roles: data.userRoles,   
+                    status: data.userStatus 
+                }
+                console.log("Value extacted in tempUser:");
+                console.log(tempUser);
+                setFetchedUser(tempUser); // seems this line is not working, why??
+                console.log("Value of fetchedUser after setting value:");
+                console.log(fetchedUser);
+                
+            })
+            .catch(error => {
+                 //console.log ("Error calling /login endpoint");
+            });
+
+            // Set user context         
+            console.log ("Setting user details...");
             currentUser.userId = inputUserId;   
-            // We have an issue fetch is async, so control not waiting to receive data
-            if (fetcheduserName == "") {    
-                console.log ("Waiting to fetch user details");
-                fetcheduserName = "User-" + inputUserId;
-            }
-            currentUser.name = fetcheduserName;       
+            if (fetchedUser.name === "") fetchedUser.name = "User-" + inputUserId; // temporary line of code
+            currentUser.name = fetchedUser.name;       
             currentUser.isLoggedIn = true;
             setUserContext(currentUser);   
+            console.log("User Context: ");
+            console.log(userContext);
             
             alert("Login successful for " + currentUser.name);
             
