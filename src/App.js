@@ -4,10 +4,11 @@ import SideMenu from './Components/SideMenu/SideMenu.js';
 import CentralPane from './Components/CentralPane/CentralPane.js';
 import RightPane from './Components/RightPane/RightPane.js';
 import Footer from './Components/Footer/Footer.js';
-import Login from './Components/LoginRegistration/Login.js';
-import Registration from './Components/LoginRegistration/Registration.js';
+import NoPage from './Components/NoPage/NoPage.js';
+import Login from './Components/Login/Login.js';
+import Registration from './Components/Login/Registration.js';
 import Blank from './Components/RightPane/Blank.js';
-import ResetPassword from './Components/LoginRegistration/ResetPassword.js';
+import ResetPassword from './Components/Login/ResetPassword.js';
 import OrderFood from './Components/OrderFood/OrderFood.js';
 import {
   BrowserRouter as Router,
@@ -15,7 +16,7 @@ import {
   Route
 } from "react-router-dom";
 import { UserContext } from './Components/Contexts/UserContext';
-import { MessageContext } from './Components/Contexts/MessageContext';
+import { AlertContext } from './Components/Contexts/AlertContext';
 import { useState} from "react";
 
 function App() {  
@@ -28,16 +29,16 @@ function App() {
   }  
   const [user, setUser] = useState(defaultUser1);
   
-  // This user object can be centrally stored and imported where needed
+  //set default message
   const defaultMessage1 = {
     alertMessage: "",
-    alertType: "alert-light",
+    alertType: "default"
   }
-  const [message, setMessage] = useState(defaultMessage1);
+  const [alert, setAlert] = useState(defaultMessage1);
 
   return ( 
     <UserContext.Provider value={[user, setUser]}> 
-    <MessageContext.Provider value={[message, setMessage]}> 
+    <AlertContext.Provider value={[alert, setAlert]}> 
     <Router>
         <div className="container"> 
           <div className="row">
@@ -50,10 +51,12 @@ function App() {
             <div className="column central-pane" id="BMM">              
               <Routes>
                   <Route exact path="/" element={<CentralPane />}/>                  
-                  <Route exact path="/login" element={<Login />}/>
+                  <Route exact path="/index" element={<CentralPane />}/>                  
+                  <Route exact path="/login" element={<Login test="test"/>}/>
                   <Route exact path="/register" element={<Registration />}/>
                   <Route exact path="/forgot-password" element={<ResetPassword />}/>
                   <Route exact path="/order-food" element={<OrderFood />}/>
+                  <Route exact path="*" element={<NoPage />}/>
               </Routes>
             </div>
 
@@ -67,15 +70,14 @@ function App() {
               </Routes>
             </div>
             
-          </div>
-          
+          </div>     
           
           <div className="row">
             <Footer />
           </div>  
         </div>
     </Router>
-    </MessageContext.Provider>
+    </AlertContext.Provider>
     </UserContext.Provider>
   );
 }
