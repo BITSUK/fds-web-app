@@ -6,19 +6,21 @@ import { UserContext } from '../Contexts/UserContext.js';
 import { AlertContext } from '../Contexts/AlertContext.js';
 import Alert from "../Alert/Alert.js";
 import { useState} from "react";
+import { useEffect } from 'react';
 
 export default function Login(props) {
     
-    // Obtain alert context and extract values in a local variable
+    // Obtain alert context reference
     const [userContext, setUserContext] = useContext(UserContext);	
 
     //initialise fetched user    
     const [fetchedUser, setFetchedUser] = useState({
-        userId: "Init",
-        name: "Initial",
-        roles: ["Customer"],   
-        status: "1"        
-    });
+                                                    userId: "Init",
+                                                    name: "Initial",
+                                                    roles: ["Customer"],   
+                                                    status: "active"        
+                                                  });
+
     console.log("Fetched user initial value");
     console.log(fetchedUser);
 
@@ -28,30 +30,36 @@ export default function Login(props) {
         alertType: alertMessage.alertType,
         alertMessage: alertMessage.alertMessage
     } 
+    
 
-    // let fetchedUser = {
-    //     userId: "",
-    //     name: "",
-    //     roles: false,   
-    //     status: " "        
-    // }
+    //Updates to fetchedUser state causes console.logging
+    // useEffect(() => {
+    //     console.log("Value of fetchedUser in useEffect:");
+    //     console.log(fetchedUser);
+    // },[fetchedUser]);
 
     const navigate = useNavigate();
 
+    // ******************************************************
+    // Handle Login Processing
+    // ******************************************************
     const handleLogin = (event) => {
 
-        event.preventDefault();         
-          
-        const currentUser = {
-            userId: userContext.uid,
-            name: userContext.name,
-            isLoggedIn: userContext.isLoggedIn
+        event.preventDefault();               
+        
+
+        // Create and initialise a local userContext object using global userContext
+        const localUserContext = {
+            userId      : userContext.uid,
+            name        : userContext.name,
+            isLoggedIn  : userContext.isLoggedIn
         }  
 
-        // Obtain the values keyed by user
+        // Obtain the userid and password entered by user on screen
         var inputUserId = document.getElementById("loginFormUserId").value;        
-        var inputPassword = document.getElementById("loginFormPassword").value;
+        var inputPassword = document.getElementById("loginFormPassword").value;        
         
+
         //Validate the user id and password
         if (inputUserId === "" || inputPassword === "") {
             // alert("Userid or password not entered");
@@ -60,46 +68,73 @@ export default function Login(props) {
             setAlert(a);
 
         } else if ((inputUserId.length >= 4) &&  (inputPassword.length >=8)) { 
-            // Call a backend API to validate userid and password and to fetch customer details
-            // API endpoint .../login
-            //Refer: https://reactjs.org/docs/faq-ajax.html#how-can-i-make-an-ajax-call
+            // Call a backend API endpoint /login to validate userid and password and to get user details
+            // Ref: https://reactjs.org/docs/faq-ajax.html#how-can-i-make-an-ajax-call
+
             let loginURL = "https://run.mocky.io/v3/0bf5e410-3e85-4145-b11d-a3e28caea78b";
-            fetch(loginURL)            
-            .then(response => response.json())
-            .then(function(data) {
+            
+            fetch(loginURL)                         // returns Promise object
+            .then(response => response.json())      // convert response to json
+            .then(function(data) {                  // process response
                 console.log("Got API Response: ");
                 console.log(data);
-                // Now how to pass response to local variable in the function? Local variable are not accessible!
-                //Ref: https://beta.reactjs.org/learn/updating-objects-in-state
 
+                // Now how to pass response to local variable in the function? 
+                // Local variable are not accessible, as this response is async
+                // Ref: https://beta.reactjs.org/learn/updating-objects-in-state
+
+                // Create a temp User object using reponse data
                 let tempUser = {
-                    userId: data.userId,
-                    name: data.userName,
-                    roles: data.userRoles,   
-                    status: data.userStatus 
+                    userId  : data.userId,
+                    name    : data.userName,
+                    roles   : data.userRoles,   
+                    status  : data.userStatus 
                 }
                 console.log("Value extacted in tempUser:");
                 console.log(tempUser);
-                setFetchedUser(tempUser); // seems this line is not working, why??
-                console.log("Value of fetchedUser after setting value:");
-                console.log(fetchedUser);
+
+                //Now update fetchedUser state object 
+                console.log("Updating the local fetchedUser state using tempUser...");
+                console.log("fetchedUser before update:");
+                console.log(fetchedUser);                
+                setFetchedUser(tempUser);   // ERROR: seems this line is not working, why??
+                console.log("fetchedUser after update:");
+                console.log(fetchedUser); 
+                
+                
+                // Also try shared userContext         
+                console.log ("Updating the shared userContext...");
+            
+                localUserContext.userId = inputUserId;                   
+                localUserContext.name = tempUser.name;       
+                localUserContext.isLoggedIn = true;
+
+                console.log("Before update userContext: ");
+                console.log(userContext);
+                setUserContext(localUserContext);   // ERROR: seems this line is not working, why??
+                console.log("After update userContext: ");
+                console.log(userContext);
                 
             })
             .catch(error => {
-                 //console.log ("Error calling /login endpoint");
+                 console.log ("Error calling /login endpoint: " + error);
             });
 
-            // Set user context         
-            console.log ("Setting user details...");
-            currentUser.userId = inputUserId;   
-            if (fetchedUser.name === "") fetchedUser.name = "User-" + inputUserId; // temporary line of code
-            currentUser.name = fetchedUser.name;       
-            currentUser.isLoggedIn = true;
-            setUserContext(currentUser);   
-            console.log("User Context: ");
+            // Now update shared userContext         
+            console.log ("Updating the shared userContext...");
+            
+            localUserContext.userId = inputUserId;   
+            if (fetchedUser.name === "") {         // temporary code as facing some issue with fetch & async response
+                fetchedUser.name = "User-" + inputUserId; 
+            }
+            localUserContext.name = fetchedUser.name;       
+            localUserContext.isLoggedIn = true;
+
+            setUserContext(localUserContext);   
+            console.log("Updated userContext: ");
             console.log(userContext);
             
-            alert("Login successful for " + currentUser.name);
+            alert("Login successful for " + localUserContext.name);
             
             a.alertMessage = "Login successful";
             a.alertType = "success";

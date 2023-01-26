@@ -3,10 +3,19 @@ import './SideMenu.css';
 import {Link} from "react-router-dom";
 import { useContext } from 'react';
 import { UserContext } from '../Contexts/UserContext.js';
+import { AlertContext } from '../Contexts/AlertContext.js';
+import Alert from "../Alert/Alert.js";
+
 
 function SideMenu(){
 
 	const [userContext, setUserContext] = useContext(UserContext);	
+	// Obtain alert context and define a local alert object    
+    const [alertMessage, setAlert] = useContext(AlertContext);
+    const a = {
+        alertType: alertMessage.alertType,
+        alertMessage: alertMessage.alertMessage
+    } 
 
 	// This function is repeated in Sidemenu and Header, to be moved into a common module
 	const handleLogout = (event) => {
@@ -23,6 +32,10 @@ function SideMenu(){
 
 		setUserContext(currentUser);
 		alert("Succesfully logged out.");
+
+		a.alertMessage = ""
+		a.alertType = "default";
+		setAlert(a);
 
 	}
 
