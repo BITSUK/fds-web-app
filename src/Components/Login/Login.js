@@ -4,9 +4,9 @@ import {Link, useNavigate } from "react-router-dom";
 import {useContext} from "react";
 import { UserContext } from '../Contexts/UserContext.js';
 import { AlertContext } from '../Contexts/AlertContext.js';
-import Alert from "../Alert/Alert.js";
 import { useState} from "react";
-import { useEffect } from 'react';
+import Alert from "../Alert/Alert.js";
+
 
 export default function Login(props) {
     
@@ -21,7 +21,7 @@ export default function Login(props) {
                                                     status: "active"        
                                                   });
 
-    console.log("Fetched user initial value");
+    console.log("Fetched User initial value");
     console.log(fetchedUser);
 
     // Obtain alert context and define a local alert object    
@@ -29,8 +29,7 @@ export default function Login(props) {
     const a = {
         alertType: alertMessage.alertType,
         alertMessage: alertMessage.alertMessage
-    } 
-    
+    }     
 
     //Updates to fetchedUser state causes console.logging
     // useEffect(() => {
@@ -103,7 +102,7 @@ export default function Login(props) {
                 
                 
                 // Also try shared userContext         
-                console.log ("Updating the shared userContext...");
+                console.log ("Updating the shared userContext (attempt 1)...");
             
                 localUserContext.userId = inputUserId;                   
                 localUserContext.name = tempUser.name;       
@@ -121,7 +120,7 @@ export default function Login(props) {
             });
 
             // Now update shared userContext         
-            console.log ("Updating the shared userContext...");
+            console.log ("Updating the shared userContext (attempt 2)...");
             
             localUserContext.userId = inputUserId;   
             if (fetchedUser.name === "") {         // temporary code as facing some issue with fetch & async response
