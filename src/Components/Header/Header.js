@@ -46,7 +46,7 @@ function Header(){
 			</div>
 
 			<div id="HMR" className="header-columns">
-				<div id="HMR-L" className="header-column1"><img src = {ImgTrainLogo} alt="FDS Train Image" style={{width:'100%'}}/></div>
+				<div id="HMR-L" className="header-column1"><img src = {ImgTrainLogo} alt="FDS Train" style={{width:'100%'}}/></div>
 				<div id="HMR-M" className="header-column2"><img id="FDSImg"src = {ImgFDS} alt="Food Delivery Service" style={{width:'100%'}}/></div>
 				<div id="HMR-R" className="header-column3"><img src = {ImgDeliverySteps} alt="Delivery Steps" style={{width:'100%'}}/></div>
 			</div>

@@ -8,7 +8,8 @@ import Login from './Components/LoginRegistration/Login.js';
 import Registration from './Components/LoginRegistration/Registration.js';
 import Blank from './Components/RightPane/Blank.js';
 import ResetPassword from './Components/LoginRegistration/ResetPassword.js';
-import OrderFood from './Components/OrderFood/OrderFood.js';
+import Ds from './Components/DS/Ds.js';
+import OrderFoodNow from './Components/DS/OderNow.js'
 import {
   BrowserRouter as Router,
   Routes,
@@ -17,6 +18,10 @@ import {
 import { UserContext } from './Components/Contexts/UserContext';
 import { MessageContext } from './Components/Contexts/MessageContext';
 import { useState} from "react";
+import OrderNow from './Components/DS/OderNow.js';
+import Offers from './Components/DS/Offers.js';
+import OrderDetails from './Components/DS/OrderDetails.js';
+import TrackOrder from './Components/DS/TrackOrder.js';
 
 function App() {  
 
@@ -52,8 +57,12 @@ function App() {
                   <Route exact path="/" element={<CentralPane />}/>                  
                   <Route exact path="/login" element={<Login />}/>
                   <Route exact path="/register" element={<Registration />}/>
-                  <Route exact path="/forgot-password" element={<ResetPassword />}/>
-                  <Route exact path="/order-food" element={<OrderFood />}/>
+                  <Route exact path="/forgot-password" element={<ResetPassword />}/>                 
+                  <Route exact path="/ds" element={<Ds />}/>    
+                  <Route exact path="/OrderFoodNow/:rest_id/" element={<OrderNow />}/>   
+                  <Route exact path="/offers" element={<Offers />}/>  
+                  <Route exact path="/OrderDetails" element={<OrderDetails/>}/>
+                  <Route exact path='/TrackOrder' element={<TrackOrder/>}/>           
               </Routes>
             </div>
 

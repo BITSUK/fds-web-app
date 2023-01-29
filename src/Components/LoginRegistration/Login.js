@@ -33,7 +33,7 @@ export default function Login() {
         var inputPassword = document.getElementById("loginFormPassword").value;
         
         //Validate the user id and password
-        if (inputUserId == "" || inputPassword == "") {
+        if (inputUserId === "" || inputPassword === "") {
             alert("Userid or password not entered");            
 
         } else if ((inputUserId.length >= 4) &&  (inputPassword.length >=8)) { 
@@ -52,7 +52,7 @@ export default function Login() {
             // setMessage(m1);
             // RenderCentralPane ("OrderFood");
             
-            navigate('/order-food'); 
+            navigate('/ds'); 
 
         } else {
             alert("Userid or password not accepted, try again.");

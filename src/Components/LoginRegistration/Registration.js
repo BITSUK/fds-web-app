@@ -5,7 +5,7 @@ import {Link} from "react-router-dom";
 export default function Registration() {
     
     const handleRegistration = (event) => {
-        if (document.getElementById("chkTerms").checked == false) {
+        if (document.getElementById("chkTerms").checked === false) {
             alert("Please accept terms and conditions");  
             return;
         } else {

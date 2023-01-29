@@ -1,0 +1,42 @@
+[
+    {
+        "order_id": 1,
+        "order_number":"fhgh456651",
+        "order_date": "23/01/2023",
+        "order_amount":"2300",
+        "order_location" :"pune",
+        "order_status": "Pending"
+    },
+    {
+        "order_id": 1,
+        "order_number":"fhgh4566572",
+        "order_date": "Yummy",
+        "order_amount":"5678",
+        "order_location" :"pune",
+        "order_status": "Pending"
+    },
+    {
+        "order_id": 1,
+        "order_number":"fhgh4566573",
+        "order_date": "Yummy",
+        "order_amount":"1200",
+        "order_location" :"pune",
+        "order_status": "Delivered"
+    },
+    {
+        "order_id": 1,
+        "order_number":"fhgh4566574",
+        "order_date": "Yummy",
+        "order_amount":"3421",
+        "order_location" :"pune",
+        "order_status": "Delivered"
+    },
+    {
+        "order_id": 1,
+        "order_number":"fhgh4566575",
+        "order_date": "Yummy",
+        "order_amount":"4000",
+        "order_location" :"pune",
+        "order_status": "Delivered"
+    }
+]

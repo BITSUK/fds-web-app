@@ -1,0 +1,37 @@
+[
+    {
+        "offer_id": 1,
+        "offer_name": "Yummy",
+        "offer_code":"4110Y1234567",
+        "location" :"pune",
+        "image_link": "./images/1.png"
+    },
+    {
+        "offer_id": 2,
+        "offer_name": "RepublicIndia",
+        "offer_code":"4110Y1234567",
+        "location" :"pune",
+        "image_link": "./images/1.png"
+    },
+    {
+        "offer_id": 3,
+        "offer_name": "Say Cheese",
+        "offer_code":"4110Y1234567",
+        "location" :"pune",
+        "image_link": "./images/1.png"
+    },
+    {
+        "offer_id": 4,
+        "offer_name": "ProudToBeAnIndian",
+        "offer_code":"4110Y1234567",
+        "location" :"pune",
+        "image_link": "./images/1.png"
+    },
+    {
+        "offer_id": 5,
+        "offer_name": "Hurray",
+        "offer_code":"4110Y1234567",
+        "location" :"pune",
+        "image_link": "./images/1.png"
+    }
+]
