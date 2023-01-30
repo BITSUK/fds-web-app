@@ -7,9 +7,17 @@ import './Header.css';
 import {Link} from "react-router-dom";
 import { useContext } from 'react';
 import { UserContext } from '../Contexts/UserContext.js';
+import { AlertContext } from '../Contexts/AlertContext.js';
 
 function Header(){
 	const [userContext, setUserContext] = useContext(UserContext);	
+
+	// Obtain alert context and define a local alert object    
+	const [alertMessage, setAlert] = useContext(AlertContext);
+	const a = {
+		alertType: alertMessage.alertType,
+		alertMessage: alertMessage.alertMessage
+	}
 
 	// This function is repeated in Sidemenu and Header, to be moved into a common module
 	const handleLogout = (event) => {
@@ -19,13 +27,19 @@ function Header(){
             name: userContext.name,
             isLoggedIn: userContext.isLoggedIn
           } 
+
+		
 		
 		currentUser.uid = "Guest";
 		currentUser.name = "Guest";  
 		currentUser.isLoggedIn = false;
 
 		setUserContext(currentUser);
-		alert("Succesfully logged out.");
+
+		a.alertMessage = ""
+		a.alertType = "default";
+		setAlert(a);
+
 	}
 
 
@@ -38,7 +52,7 @@ function Header(){
 				<div id="HTR-R" className="header-row1-col3">
 					<span id="Welcome">Welcome {userContext.name} </span>					
 					{userContext.isLoggedIn ? (
-						<span id="Logout"><Link to="/" onClick={handleLogout}>Logout</Link></span>
+						<span id="Logout"><Link to="/login" onClick={handleLogout}>Logout</Link></span>
 					) : (
 						<span id="Login"><Link to="/login">Login</Link>&nbsp;/&nbsp;<Link to="/register">Register</Link></span>
       				)}

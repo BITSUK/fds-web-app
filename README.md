@@ -14,6 +14,9 @@ To run the project you need Node and npm installed.
 1. Download or clone from git Hub
 2. Perform '''npm install''' on command prompt. This will install all dependencies.
 3. To run give '''npm start''' on the command line. Application will start running on http://localhost:3000.
+4. Note: Before running step 3 you should run json-server on port 3004 using following command.
+- Open terminal and navigate to src/constants folder
+- give command: 'json-server --watch APIResponses.json --port 3004
 
 ### End of File
 
