@@ -23,6 +23,7 @@ function SideMenu(){
 		setUserContext({
 			uid: "Guest",
 			name: "Guest",
+			role: "default",
 			isLoggedIn: false
 		});
 
@@ -31,16 +32,35 @@ function SideMenu(){
 		setAlert(a);
 	}
 
+	//This function dynamically renders side menu options looking at user role and login status
+	function ShowMenuOptions() {
+
+		return (
+			<>
+				<div> 
+					{!userContext.isLoggedIn && 
+						<Link to="/login">Login</Link>
+					}
+				</div>
+				<div>
+					<Link to="/order-food">Order Food</Link>
+				</div>
+				<div>
+					{userContext.isLoggedIn && 
+						<Link to="/login" onClick={handleLogout}>Logout</Link>
+					}
+				</div>
+				
+			</>
+		);
+	}
+	
+
     return(
         <>
 			<div className="column left-nav" id="BML">
 				<div className="vertical-menu">
-					{userContext.isLoggedIn ? (
-						<Link to="/login" onClick={handleLogout}>Logout</Link>
-					):(
-						<Link to="/login">Login</Link>
-					)}
-					<Link to="/order-food">Order Food</Link>
+					<ShowMenuOptions />
 				</div>
 				<div className="vertical-menu-expand">
 					<Link to="#">Menu</Link>

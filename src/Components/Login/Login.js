@@ -52,6 +52,7 @@ export default function Login(props) {
                     setUserContext({
                         uid: data.userId,
                         name: data.userName,
+                        role: inputRole,
                         isLoggedIn: true
                     })
                     

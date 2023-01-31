@@ -25,13 +25,15 @@ function Header(){
 		const currentUser = {
             uid: userContext.uid,
             name: userContext.name,
+			role: userContext.role,
             isLoggedIn: userContext.isLoggedIn
           } 
 
 		
 		
 		currentUser.uid = "Guest";
-		currentUser.name = "Guest";  
+		currentUser.name = "Guest";
+		currentUser.role = "default";  
 		currentUser.isLoggedIn = false;
 
 		setUserContext(currentUser);
@@ -50,7 +52,7 @@ function Header(){
 				<div id="HTR-L" className="header-row1-col1"><Link to="/"><img id="home-ico" src = {HomeIcon} alt="Home"/></Link></div>
 				<div id="HTR-M" className="header-row1-col2"></div>
 				<div id="HTR-R" className="header-row1-col3">
-					<span id="Welcome">Welcome {userContext.name} </span>					
+					<span id="Welcome">Welcome: {userContext.name + " (" + userContext.role + ")"} </span>					
 					{userContext.isLoggedIn ? (
 						<span id="Logout"><Link to="/login" onClick={handleLogout}>Logout</Link></span>
 					) : (

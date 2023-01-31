@@ -25,6 +25,7 @@ function App() {
   const defaultUser1 = {
     uid: "Guest",
     name: "Guest",
+    role: "default",
     isLoggedIn: false
   }  
   const [user, setUser] = useState(defaultUser1);
@@ -64,8 +65,7 @@ function App() {
               <Routes>
                   <Route exact path="/" element={<RightPane />}/>
                   <Route exact path="/order-food" element={<RightPane />}/>
-                  <Route exact path="/login" element={<Blank message="Enter user id and password to login. 
-                                                                      Password min 8 chars and UIDxxx (where xxx = 001, 002, 003 or 004)."/>}/>
+                  <Route exact path="/login" element={<Blank message="Enter user id and password to login. Password min 8 chars and UIDxxx (where xxx = 001, 002, 003 or 004)."/>}/>
                   <Route exact path="/register" element={<Blank message="Enter user details to register. Restuarant registration will involve approval."/>}/>
                   <Route exact path="/forgot-password" element={<Blank message="Reset password using OTP authentication. Password should be atleast 8 character."/>}/>
               </Routes>

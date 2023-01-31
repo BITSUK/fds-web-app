@@ -1,9 +1,9 @@
 {
     "users": [
-      { "id": "001", "userId" : "UID001", "userName"   : "Amit",                        "userRoles"   : ["customer"],                  "userStatus" : "active" },
-      { "id": "002", "userId" : "UID002", "userName"   : "Dheeraj (Taste of India)",    "userRoles"   : ["restaurant"],                "userStatus" : "active" },
-      { "id": "003", "userId" : "UID003", "userName"   : "Duyal Sharma",                "userRoles"   : ["customer","restaurant"],     "userStatus" : "active" },
-      { "id": "004", "userId" : "UID004", "userName"   : "Rana",                        "userRoles"   : ["admin"],                     "userStatus" : "active" }
+      { "id": "001", "userId" : "UID001", "userName"   : "Amit",      "userRoles"   : ["customer"],                  "userStatus" : "active" },
+      { "id": "002", "userId" : "UID002", "userName"   : "Deepak",    "userRoles"   : ["restaurant"],                "userStatus" : "active" },
+      { "id": "003", "userId" : "UID003", "userName"   : "Priya",     "userRoles"   : ["customer","restaurant"],     "userStatus" : "active" },
+      { "id": "004", "userId" : "UID004", "userName"   : "Rana",      "userRoles"   : ["admin"],                     "userStatus" : "active" }
     ]
   }
   
