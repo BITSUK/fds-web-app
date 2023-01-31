@@ -1,8 +1,18 @@
 import React from 'react'
 import './Registration.css';
 import {Link} from "react-router-dom";
+import { AlertContext } from '../Contexts/AlertContext.js';
+import {useContext} from "react";
+import Alert from "../Alert/Alert.js";
 
 export default function Registration() {
+
+    // Obtain alert context and define a local alert object
+    const [alertMessage, setAlert] = useContext(AlertContext);
+    const a = {
+        alertType: alertMessage.alertType,
+        alertMessage: alertMessage.alertMessage
+    } 
     
     const handleRegistration = (event) => {
         if (document.getElementById("chkTerms").checked == false) {
@@ -24,6 +34,7 @@ export default function Registration() {
     
     return (
     <div>
+        <Alert />
         <div className="reg-form-container">            
             
             <div className="reg-form-components">

@@ -9,7 +9,19 @@ export default function NoPage(props){
             404 Page not found
             </p>
             {/* <button className="btn btn-primary" onClick={() => props.history.goBack()}>Go Back</button> */}
-        </div>
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+        </div>        
 		</div>
     )
 }

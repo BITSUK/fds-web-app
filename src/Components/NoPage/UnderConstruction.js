@@ -9,6 +9,18 @@ export default function UnderConstruction(props){
             This page is under construction.
             </p>
             {/* <button className="btn btn-primary" onClick={() => props.history.goBack()}>Go Back</button> */}
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
         </div>
 		</div>
     )

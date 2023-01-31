@@ -1,15 +1,27 @@
 import React from 'react'
 import './ResetPassword.css';
 import {Link} from "react-router-dom";
+import { AlertContext } from '../Contexts/AlertContext.js';
+import {useContext} from "react";
+import Alert from "../Alert/Alert.js";
 
 export default function ResetPassword() {
+
+    // Obtain alert context and define a local alert object
+    const [alertMessage, setAlert] = useContext(AlertContext);
+    const a = {
+        alertType: alertMessage.alertType,
+        alertMessage: alertMessage.alertMessage
+    } 
     
     const handleResetPassword = (event) => {
         alert("Reset password button clicked");        
     }
     
     return (
+        
     <div>
+        <Alert />
         <div className="reset-form-container">            
             <div className="reset-form-components">
                 <label htmlFor="resetFormUserid" className="form-label">User</label>
