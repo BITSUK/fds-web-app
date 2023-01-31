@@ -60,7 +60,7 @@ export default function Login(props) {
                     a.alertType = "success";
                     setAlert(a);
                     
-                    navigate('/order-food'); 
+                    navigate('/dashboard'); 
                 } else {
                     a.alertMessage = "Userid or password not valid, please try again.";
                     a.alertType = "error";

@@ -44,7 +44,6 @@ function Header(){
 
 	}
 
-
     return (
         <div className="header-container">
 			<div id="HTR" className="header-columns">

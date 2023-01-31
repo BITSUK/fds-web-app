@@ -5,11 +5,13 @@ import CentralPane from './Components/CentralPane/CentralPane.js';
 import RightPane from './Components/RightPane/RightPane.js';
 import Footer from './Components/Footer/Footer.js';
 import NoPage from './Components/NoPage/NoPage.js';
+import UnderConstruction from './Components/NoPage/UnderConstruction.js';
 import Login from './Components/Login/Login.js';
 import Registration from './Components/Login/Registration.js';
 import Blank from './Components/RightPane/Blank.js';
 import ResetPassword from './Components/Login/ResetPassword.js';
 import OrderFood from './Components/OrderFood/OrderFood.js';
+import Dashboard from './Components/Dashboard/Dashboard.js';
 import {
   BrowserRouter as Router,
   Routes,
@@ -57,6 +59,12 @@ function App() {
                   <Route exact path="/register" element={<Registration />}/>
                   <Route exact path="/forgot-password" element={<ResetPassword />}/>
                   <Route exact path="/order-food" element={<OrderFood />}/>
+                  <Route exact path="/dashboard" element={<Dashboard />}/>
+                  <Route exact path="/order-history" element={<UnderConstruction />}/>
+                  <Route exact path="/profile" element={<UnderConstruction />}/>
+                  <Route exact path="/rest-menu" element={<UnderConstruction />}/>
+                  <Route exact path="/rest-orders" element={<UnderConstruction />}/>
+                  <Route exact path="/rest-settings" element={<UnderConstruction />}/>                  
                   <Route exact path="*" element={<NoPage />}/>
               </Routes>
             </div>
