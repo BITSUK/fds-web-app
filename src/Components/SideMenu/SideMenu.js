@@ -9,6 +9,7 @@ import CustomerMenu from "./CustomerMenu.js";
 import RestaurantMenu from "./RestaurantMenu.js";
 
 
+
 function SideMenu(){
 
 	const [userContext, setUserContext] = useContext(UserContext);	
@@ -53,7 +54,7 @@ function SideMenu(){
 				<div>
 					{(userContext.role == "customer") && <CustomerMenu />}
 					{(userContext.role == "restaurant") && <RestaurantMenu />}
-					{(userContext.role == "default") && <Link to="/order-food">Order Food</Link>}
+					{(userContext.role == "default") && <Link to="/Home">Order Food</Link>}
 				</div>
 				<div>
 					{userContext.isLoggedIn && <Link to="/login" onClick={handleLogout}>Logout</Link>}					

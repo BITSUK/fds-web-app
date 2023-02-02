@@ -1,0 +1,14 @@
+[
+    { 
+        "id": "1", 
+        "station_name"   : "Mathura"    
+    },
+    { 
+        "id": "2", 
+        "station_name" : "Kota"    
+    },
+    { 
+        "id": "3", 
+        "station_name" : "Delhi"   
+    }
+]

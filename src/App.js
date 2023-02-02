@@ -10,10 +10,12 @@ import Login from './Components/Login/Login.js';
 import Registration from './Components/Login/Registration.js';
 import Blank from './Components/RightPane/Blank.js';
 import ResetPassword from './Components/Login/ResetPassword.js';
-import OrderFood from './Components/OrderFood/OrderFood.js';
+import Home from './Components/Home/Home.js';
 import Dashboard from './Components/Dashboard/Dashboard.js';
+import PreviousOrders from './Components/Dashboard/PreviousOrders.js';
 import FAQ from './Components/FAQ/FAQ.js';
 import CustJourneyHelp from './Components/CentralPane/CustJourneyHelp.js';
+import OrderFood from './Components/OrderFood/OrderFood.js';
 import {
   BrowserRouter as Router,
   Routes,
@@ -33,7 +35,7 @@ function App() {
     isLoggedIn: false
   }  
   const [user, setUser] = useState(defaultUser1);
-  
+
   //set default message
   const defaultMessage1 = {
     alertMessage: "",
@@ -60,9 +62,10 @@ function App() {
                   <Route exact path="/login" element={<Login test="test"/>}/>
                   <Route exact path="/register" element={<Registration />}/>
                   <Route exact path="/forgot-password" element={<ResetPassword />}/>
-                  <Route exact path="/order-food" element={<OrderFood />}/>
+                  <Route exact path="/home" element={<Home />}/>
                   <Route exact path="/dashboard" element={<Dashboard />}/>
-                  <Route exact path="/order-history" element={<UnderConstruction />}/>
+                  <Route exact path="/order-food" element={<OrderFood />}/>
+                  <Route exact path="/previous-orders" element={<PreviousOrders />}/>
                   <Route exact path="/profile" element={<UnderConstruction />}/>
                   <Route exact path="/rest-menu" element={<UnderConstruction />}/>
                   <Route exact path="/rest-orders" element={<UnderConstruction />}/>
@@ -76,12 +79,14 @@ function App() {
             <div className="column right-pane" id="BMR">
               <Routes>
                   <Route exact path="/" element={<RightPane />}/>
-                  <Route exact path="/order-food" element={<RightPane />}/>
+                  <Route exact path="/home" element={<RightPane />}/>
                   <Route exact path="/login" element={<Blank message="Enter user id and password to login. Password min 8 chars and UIDxxx (where xxx = 001, 002, 003 or 004)."/>}/>
                   <Route exact path="/register" element={<Blank message="Enter user details to register. Restuarant registration will involve approval."/>}/>
                   <Route exact path="/forgot-password" element={<Blank message="Reset password using OTP authentication. Password should be atleast 8 character."/>}/>
                   <Route exact path="/faq" element={<Blank message="This page is placeholder."/>}/>  
-                  <Route exact path="/journey" element={<Blank message="This page is placeholder."/>}/>  
+                  <Route exact path="/journey" element={<Blank message="This page is placeholder."/>}/> 
+                  <Route exact path="/dashboard" element={<Blank message=""/>}/>
+                  <Route exact path="/order-food" element={<Blank message=""/>}/>
                   <Route exact path="*" element={<Blank message=""/>}/>
               </Routes>
             </div>

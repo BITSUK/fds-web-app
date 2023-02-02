@@ -1,18 +1,29 @@
 import React from "react";
-import SearchInput from '../CentralPane/SearchInput.js';
-import FoodItemsDisplay from '../CentralPane/FoodItemsDisplay.js';
-import CustomerJourney from '../CentralPane/CustomerJourney.js';
-import Testimonials from '../CentralPane/Testimonials.js';
+import ActiveOrders from './ActiveOrders.js';
 import './Dashboard.css';
+import { AlertContext } from '../Contexts/AlertContext.js';
+import Alert from "../Alert/Alert.js";
+import {useContext} from "react";
+import { UserContext } from '../Contexts/UserContext.js';
 
 
 export default function Dashboard(){
+
+    // Obtain alert context and define a local alert object
+    const [alertMessage, setAlert] = useContext(AlertContext);
+    const a = {
+        alertType: alertMessage.alertType,
+        alertMessage: alertMessage.alertMessage
+    }   
+
+    const [userContext, setUserContext] = useContext(UserContext);
+
     return(
         <>
-           <SearchInput />
-           <FoodItemsDisplay /> 
-           <CustomerJourney />
-           <Testimonials />     
+            <Alert />
+            <ActiveOrders/>
+            {/* <SearchInput /> */}
+            {/* <FoodItemsDisplay />  */}
         </>
     )    
 }

@@ -5,6 +5,7 @@ import {useContext} from "react";
 import { UserContext } from '../Contexts/UserContext.js';
 import { AlertContext } from '../Contexts/AlertContext.js';
 import Alert from "../Alert/Alert.js";
+import { hasSelectionSupport } from '@testing-library/user-event/dist/utils';
 
 
 export default function Login(props) {
@@ -56,10 +57,12 @@ export default function Login(props) {
                         isLoggedIn: true
                     })
                     
-                    a.alertMessage = "Login successful";
-                    a.alertType = "success";
-                    setAlert(a);
+                    a.alertMessage = "";
+                    a.alertType = "default";
+                    setAlert(a);                    
                     
+                    alert("Login Successful");
+
                     navigate('/dashboard'); 
                 } else {
                     a.alertMessage = "Userid or password not valid, please try again.";
@@ -72,10 +75,7 @@ export default function Login(props) {
                  console.log ("Error calling /login endpoint: " + error);
             });
 
-            //navigate('/order-food'); 
-
         } else {
-            // alert("Userid or password not accepted, try again.");
             a.alertMessage = "Userid or password not valid, try again.";
             a.alertType = "error";
             setAlert(a);

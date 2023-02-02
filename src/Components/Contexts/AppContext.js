@@ -1,7 +1,8 @@
 import { createContext } from 'react';
 
 const defaultAppContext = {
-    selectedOption: ""
+    cartItemCount: "1",
+    orderMode: "d"
 }
 
 export const AppContext = createContext(defaultAppContext);

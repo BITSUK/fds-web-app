@@ -1,0 +1,17 @@
+[
+    { 
+        "id": "1", 
+        "train_no"   : "12926",
+        "train_name" : "Paschim SF Express"
+    },
+    { 
+        "id": "2", 
+        "train_no"   : "22210",
+        "train_name" : "Duronto Express"
+    },
+    { 
+        "id": "3", 
+        "train_no"   : "12910",
+        "train_name" : "Garibrath"
+    }
+]
