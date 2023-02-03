@@ -16,6 +16,9 @@ import PreviousOrders from './Components/Dashboard/PreviousOrders.js';
 import FAQ from './Components/FAQ/FAQ.js';
 import CustJourneyHelp from './Components/CentralPane/CustJourneyHelp.js';
 import OrderFood from './Components/OrderFood/OrderFood.js';
+import OrderFoodTrain from './Components/OrderFood/OrderFoodTrain.js';
+import OrderFoodRest from './Components/OrderFood/OrderFoodRest.js';
+import { useParams } from "react-router-dom";
 import {
   BrowserRouter as Router,
   Routes,
@@ -65,6 +68,8 @@ function App() {
                   <Route exact path="/home" element={<Home />}/>
                   <Route exact path="/dashboard" element={<Dashboard />}/>
                   <Route exact path="/order-food" element={<OrderFood />}/>
+                  <Route exact path="/order-food/train/:train_id" element={<OrderFoodTrain/>}/>
+                  <Route exact path="/order-food/station/:station_id" element={<OrderFoodRest/>}/>
                   <Route exact path="/previous-orders" element={<PreviousOrders />}/>
                   <Route exact path="/profile" element={<UnderConstruction />}/>
                   <Route exact path="/rest-menu" element={<UnderConstruction />}/>

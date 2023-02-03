@@ -1,14 +1,9 @@
 [
-    { 
-        "id": "1", 
-        "station_name"   : "Mathura"    
-    },
-    { 
-        "id": "2", 
-        "station_name" : "Kota"    
-    },
-    { 
-        "id": "3", 
-        "station_name" : "Delhi"   
-    }
+    {  "id": "1", "station_code" : "NDLS", "station_name" : "Delhi"          },
+    {  "id": "2", "station_code" : "MTJ",  "station_name" : "Mathura"        },
+    {  "id": "3", "station_code" : "KOTA", "station_name" : "Kota"           },
+    {  "id": "4", "station_code" : "RTM",  "station_name" : "Ratlam"         },
+    {  "id": "5", "station_code" : "BRC",  "station_name" : "Vadodara"       },
+    {  "id": "6", "station_code" : "ST",   "station_name" : "Surat"          },
+    {  "id": "7", "station_code" : "MMCT", "station_name" : "Mumbai"         }
 ]

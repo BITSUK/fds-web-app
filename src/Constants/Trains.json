@@ -2,16 +2,64 @@
     { 
         "id": "1", 
         "train_no"   : "12926",
-        "train_name" : "Paschim SF Express"
+        "train_name" : "Paschim SF Express",
+        "train_stations" : [ 
+            {  "station": "Delhi"    },
+            {  "station": "Mathura"  },
+            {  "station": "Kota"     },
+            {  "station": "Ratlam"   },
+            {  "station": "Vadodara" },
+            {  "station": "Surat"    },
+            {  "station": "Mumbai"   }  
+        ]
     },
     { 
         "id": "2", 
         "train_no"   : "22210",
-        "train_name" : "Duronto Express"
+        "train_name" : "Duronto Express",
+        "train_stations" : [ 
+            {  "station": "Delhi"    },
+            {  "station": "Kota"     },
+            {  "station": "Ratlam"   },
+            {  "station": "Vadodara" },
+            {  "station": "Mumbai"   }  
+        ]
     },
-    { 
+    {   
         "id": "3", 
         "train_no"   : "12910",
-        "train_name" : "Garibrath"
+        "train_name" : "Garibrath",
+        "train_stations" : [ 
+            {  "station": "Delhi"    },
+            {  "station": "Mathura"  },
+            {  "station": "Kota"     },
+            {  "station": "Ratlam"   },
+            {  "station": "Vadodara" },
+            {  "station": "Surat"    },
+            {  "station": "Mumbai"   }  
+        ]
+    },
+    {   
+        "id": "4", 
+        "train_no"   : "12432",
+        "train_name" : "Rajdhani",
+        "train_stations" : [ 
+            {  "station": "Delhi"    },
+            {  "station": "Kota"     },
+            {  "station": "Vadodara" },
+            {  "station": "Mumbai"   }  
+        ]
+    },
+    {   
+        "id": "5", 
+        "train_no"   : "02954",
+        "train_name" : "Golden Temple",
+        "train_stations" : [ 
+            {  "station": "Delhi"    },
+            {  "station": "Mathura"  },
+            {  "station": "Kota"     },
+            {  "station": "Ratlam"   },
+            {  "station": "Mumbai"   }  
+        ]
     }
 ]
