@@ -6,8 +6,8 @@ import ImgDeliverySteps from './images/Delivery Steps.jpg';
 import './Header.css';
 import {Link} from "react-router-dom";
 import { useContext } from 'react';
-import { UserContext } from '../Contexts/UserContext.js';
-import { AlertContext } from '../Contexts/AlertContext.js';
+import { UserContext, defaultUser } from '../../Contexts/UserContext.js';
+import { AlertContext } from '../../Contexts/AlertContext.js';
 
 function Header(){
 	const [userContext, setUserContext] = useContext(UserContext);	
@@ -19,24 +19,10 @@ function Header(){
 		alertMessage: alertMessage.alertMessage
 	}
 
-	// This function is repeated in Sidemenu and Header, to be moved into a common module
+	// Handles logout
 	const handleLogout = (event) => {
 
-		const currentUser = {
-            uid: userContext.uid,
-            name: userContext.name,
-			role: userContext.role,
-            isLoggedIn: userContext.isLoggedIn
-          } 
-
-		
-		
-		currentUser.uid = "Guest";
-		currentUser.name = "Guest";
-		currentUser.role = "default";  
-		currentUser.isLoggedIn = false;
-
-		setUserContext(currentUser);
+		setUserContext(defaultUser);
 
 		a.alertMessage = ""
 		a.alertType = "default";
@@ -44,6 +30,7 @@ function Header(){
 
 	}
 
+	//***************** RETURN *****************
     return (
         <div className="header-container">
 			<div id="HTR" className="header-columns">

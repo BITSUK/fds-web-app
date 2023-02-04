@@ -2,10 +2,9 @@ import React from 'react';
 import './Login.css';
 import {Link, useNavigate } from "react-router-dom";
 import {useContext} from "react";
-import { UserContext } from '../Contexts/UserContext.js';
-import { AlertContext } from '../Contexts/AlertContext.js';
+import { UserContext } from '../../Contexts/UserContext.js';
+import { AlertContext } from '../../Contexts/AlertContext.js';
 import Alert from "../Alert/Alert.js";
-import { hasSelectionSupport } from '@testing-library/user-event/dist/utils';
 
 
 export default function Login(props) {
@@ -21,9 +20,7 @@ export default function Login(props) {
 
     const navigate = useNavigate();
 
-    // *************
-    // Handle Login 
-    // *************
+    // Handles Login 
     const handleLogin = (event) => {
 
         event.preventDefault();               
@@ -43,6 +40,7 @@ export default function Login(props) {
             var uidN =  inputUserId.substr(3,3);
             let loginURL = "http://localhost:3004/users/" + uidN;
             
+            // API call to jason-server 
             fetch(loginURL)                         // returns Promise object
             .then(response => response.json())      // convert response to json
             .then(function(data) {                  // process response
@@ -82,6 +80,7 @@ export default function Login(props) {
         }
     }    
 
+    //*********************** RETURN ******************************
     return (
     <div>
         <Alert />

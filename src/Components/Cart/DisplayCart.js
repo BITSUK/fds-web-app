@@ -1,45 +1,38 @@
 import React, { useState, useEffect } from "react";
 import {useContext} from "react";
 import { Link, useNavigate} from "react-router-dom";
-import { CartContext, emptyCart } from '../Contexts/CartContext.js';
-import {UserContext} from '../Contexts/UserContext.js';
+import { CartContext} from '../../Contexts/CartContext.js';
+import { emptyCart} from '../../Contexts/CartContext.js';
+import {UserContext} from '../../Contexts/UserContext.js';
 import './DisplayCart.css';
 
+//This component displays the Cart items to the user
 export default function DisplayCart(props) {
-    const [cart, setCart] = useContext(CartContext);
-    const [userContext, setUserContext] = useContext(UserContext);
-
-
-    const cartItems = cart.items;
+    
     const navigate = useNavigate();
+    const [userContext, setUserContext] = useContext(UserContext);
+    
+    const [cart, setCart] = useContext(CartContext);
+    const cartItems = cart.items;  //Extract cart items in a separate variable
 
-    const c = {    
-        totalPrice  : "0",
-        discount    : "0",
-        taxes       : "0",
-        netprice    : "0",
-        status      : "initial",
-        items: [
-            {
-                item_id : "-",
-                item_name : "-",
-                item_price : "0",
-                item_quantity : "0"
-            }
-        ]
+    // Sets the cart to empty
+    const emptyTheCart = (event) => {
+        setCart(emptyCart);     
     }
 
-    const emptyCart = (event) => {
-        setCart(c);     
+    // Handles item deletes from the cart
+    const handleDeleteItem = (event) => {
+            return; //This code is not written
     }
 
+    // ****************** RETURN ********************
     return (
         <div className="container-fluid">
-            <div className="row ">
+            <div className="row">
                 <div><b className="col-sm-8">Your Cart:</b></div>
-                <Link to="#" className="col-sm-4" role="button" style={{ padding: 0, fontSize: 11 }} onClick={emptyCart}>Empty Cart</Link>
+                <Link to="#" className="col-sm-4" role="button" style={{padding: 0, fontSize: 12}} onClick={emptyTheCart}>Empty Cart</Link>
                 <br/>
-                <hr/>
+                <hr className="horizontal-line"/>             
                 <div className="col-sm-12">
                     {cartItems.length === 0 ? (
                         <div className="row">
@@ -50,7 +43,7 @@ export default function DisplayCart(props) {
                             </div>
                         </div>
                     ) : (cartItems.map(record => (
-                        <div className="col-sm-12" style={{ padding: 0, fontSize: 11 }}>
+                        <div className="col-sm-12"    style={{ padding: 0, fontSize: 11 }}>
                             <div className="col-sm-7" style={{ fontSize: 11, padding: 0 }}>                                    
                                 {record.item_name}
                             </div>
@@ -62,14 +55,18 @@ export default function DisplayCart(props) {
                             </div>
                             <div className="col-sm-1" style={{ fontSize: 11, padding: 0 }}>
                                 <div >                            
-                                    <Link to="#" style={{ fontSize: 11, padding: 0 }}>Del</Link>
+                                    {record.item_name === "No item in cart" ? (
+                                        <Link to="#" style={{ fontSize: 11, padding: 0 }} onClick={handleDeleteItem}></Link>
+                                    ): (
+                                        <Link to="#" style={{ fontSize: 11, padding: 0 }} onClick={handleDeleteItem}>Del</Link>
+                                    )}
                                 </div>
                             </div>
                         </div>
                         ))
                     )} 
-                    .
-                    <hr/>
+                    <span className="white-color-text">.</span>  
+                    <hr className="horizontal-line"/>
                     <div className="col-sm-12" style={{ fontSize: 11, padding: 0 }}>
                         <div className="col-sm-9"> Total Amount:</div>
                         <div className="col-sm-3"> {cart.totalPrice}</div>
@@ -89,8 +86,8 @@ export default function DisplayCart(props) {
                         </b>
                     </div>  
                 </div>
-                .
-                <hr/>
+                <span className="white-color-text">.</span>                
+                <hr className="horizontal-line"/>
                 <Link to={userContext.isLoggedIn? '/order-conf-page': '/login'} className="btn btn-primary" role="button" >Checkout</Link>    
             </div>
         </div>

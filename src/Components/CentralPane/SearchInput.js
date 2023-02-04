@@ -1,10 +1,11 @@
 import React from "react";
 import './SearchInput.css';
-import { AlertContext } from '../Contexts/AlertContext.js';
-import Alert from "../Alert/Alert.js";
+import { AlertContext } from '../../Contexts/AlertContext.js';
 import {useContext} from "react";
+import { Link, useNavigate} from "react-router-dom";
 
-function SearchInput(){
+export default function SearchInput(){
+	const navigate = useNavigate();
 
 	// Obtain alert context and define a local alert object
     const [alertMessage, setAlert] = useContext(AlertContext);
@@ -13,35 +14,31 @@ function SearchInput(){
         alertMessage: alertMessage.alertMessage
     }
 
+	const handleRadioClick = (event) => {
+		navigate("/order-food");
+	}
+
+	//Handles click on Search button
 	const handleSearch = (event) => {
 
 		event.preventDefault();   
-
-		var inputText = document.getElementById("searchBox").value;
-
-		if (inputText == "") {
-			//set default message
-			a.alertMessage = "Please check search criteria and try again.";
-			a.alertType = "error";
-			setAlert(a);
-
-		} else {
-			//set default message
-			a.alertMessage = "";
-			a.alertType = "default";
-			setAlert(a);
-		}
+		navigate("/order-food");
+		//set default message
+		a.alertMessage = "";
+		a.alertType = "default";
+		setAlert(a);
 
 	}
 
+	// ****************** RETURN ********************
     return (
         <>
 			<div id="order-bar">
 				<br/>
 				<span id="OrderNowText"><b>Order Now:&nbsp;&nbsp;&nbsp;</b></span>
-				<input type="radio" id="radioTrain" name="search-options" value="Train"/>&nbsp;
+				<input type="radio" id="radioTrain" name="search-options" value="Train" onClick={handleRadioClick}/>&nbsp;
 				<label htmlFor="radioTrain">Train No</label>&nbsp;&nbsp;&nbsp;
-				<input type="radio" id="radioStation" name="search-options" value="Station"/>&nbsp;
+				<input type="radio" id="radioStation" name="search-options" value="Station" onClick={handleRadioClick}/>&nbsp;
 				<label htmlFor="radioStation">Station</label>
 			</div>
 			<div id="search-container">
@@ -54,4 +51,3 @@ function SearchInput(){
     )
 }
 
-export default SearchInput;

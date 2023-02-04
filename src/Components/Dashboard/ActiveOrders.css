@@ -7,3 +7,11 @@
     padding-left: 20px;
 
 }
+
+.Pending {
+    color: blue;   
+}
+
+.Confirmed {
+    color: green;   
+}

@@ -2,7 +2,6 @@ import React from "react";
 import './Testimonials.css';
 
 export default function Testimonials(){
-    //carousel referred taken from https://www.w3schools.com/bootstrap/bootstrap_carousel.asp
     return(
         <>           
             <div id="myCarousel" className="carousel slide" data-ride="carousel">

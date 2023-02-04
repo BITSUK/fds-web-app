@@ -1,10 +1,10 @@
 import { createContext } from 'react';
 
-const defaultUser0 = {
+export const defaultUser = {
     uid: "Guest",
     name: "Guest",
     role: "default",
     isLoggedIn: false
 }
 
-export const UserContext = createContext(defaultUser0);
+export const UserContext = createContext(defaultUser);

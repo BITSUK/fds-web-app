@@ -1,7 +1,7 @@
 import React from "react";
 import './OrderFood.css';
 import { useParams } from "react-router-dom";
-import Trains from '../Data/Trains.json';
+import Trains from '../../Data/Trains.json';
 import {Link} from "react-router-dom";
 
 export default function OrderFoodTrain(){

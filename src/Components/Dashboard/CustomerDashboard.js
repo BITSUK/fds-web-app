@@ -1,10 +1,10 @@
 import React from "react";
 import ActiveOrders from './ActiveOrders.js';
 import './Dashboard.css';
-import { AlertContext } from '../Contexts/AlertContext.js';
+import { AlertContext } from '../../Contexts/AlertContext.js';
 import Alert from "../Alert/Alert.js";
 import {useContext} from "react";
-import { UserContext } from '../Contexts/UserContext.js';
+import { UserContext } from '../../Contexts/UserContext.js';
 
 
 export default function Dashboard(){
@@ -21,7 +21,8 @@ export default function Dashboard(){
     return(
         <>
             <Alert />
-            <h1>Dashboard</h1>
+            <h1 className="no-margin">Dashboard</h1>
+            <hr className="horizontal-line"/>
             <ActiveOrders/>
             {/* <SearchInput /> */}
             {/* <FoodItemsDisplay />  */}

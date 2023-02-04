@@ -3,6 +3,7 @@ import './CustJourneyHelp.css';
 import { Link } from 'react-router-dom';
 
 const CustJourneyHelp = () => {
+  
   return (
     <div className="journey-container">
       <Link to="/" className="btn btn-info" role="button">Back</Link>

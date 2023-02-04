@@ -2,18 +2,14 @@ import React from "react";
 import './SideMenu.css';
 import {Link} from "react-router-dom";
 import { useContext } from 'react';
-import { UserContext } from '../Contexts/UserContext.js';
-import { AlertContext } from '../Contexts/AlertContext.js';
-import { AppContext } from '../Contexts/AppContext.js';
+import { UserContext, defaultUser} from '../../Contexts/UserContext.js';
+import { AlertContext } from '../../Contexts/AlertContext.js';
 import CustomerMenu from "./CustomerMenu.js";
 import RestaurantMenu from "./RestaurantMenu.js";
 
-
-
-function SideMenu(){
+export default function SideMenu(){
 
 	const [userContext, setUserContext] = useContext(UserContext);	
-	// const [appContext, setAppContext] = useContext(AppContext);	
 	
 	// Obtain alert context and define a local alert object    
     const [alertMessage, setAlert] = useContext(AlertContext);
@@ -22,26 +18,15 @@ function SideMenu(){
         alertMessage: alertMessage.alertMessage
     } 
 
-	// This function is repeated in Sidemenu and Header, to be moved into a common module
+	// Handles Logout
 	const handleLogout = (event) => {
 
-		setUserContext({
-			uid: "Guest",
-			name: "Guest",
-			role: "default",
-			isLoggedIn: false
-		});
+		setUserContext(defaultUser);
 
-		// setAppContext("login");
 		a.alertMessage = ""
 		a.alertType = "default";
 		setAlert(a);
 	}
-
-	// set App context when menu item clicked
-	// const handleOrderFood = (event) => {
-	// 	setAppContext("order-food");
-	// }
 
 	//This function dynamically renders side menu options looking at user role and login status
 	function ShowMenuOptions() {
@@ -54,7 +39,7 @@ function SideMenu(){
 				<div>
 					{(userContext.role == "customer") && <CustomerMenu />}
 					{(userContext.role == "restaurant") && <RestaurantMenu />}
-					{(userContext.role == "default") && <Link to="/Home">Order Food</Link>}
+					{(userContext.role == "default") && <Link to="/order-food">Order Food</Link>}
 				</div>
 				<div>
 					{userContext.isLoggedIn && <Link to="/login" onClick={handleLogout}>Logout</Link>}					
@@ -64,7 +49,7 @@ function SideMenu(){
 		);
 	}
 	
-
+	//******************** RETURN ***************/
     return(
         <>
 			<div className="column left-nav" id="BML">
@@ -78,7 +63,4 @@ function SideMenu(){
 		
         </>
     )
-    
 }
-
-export default SideMenu;

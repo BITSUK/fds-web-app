@@ -1,7 +1,7 @@
 import React from 'react'
 import './Registration.css';
 import {Link} from "react-router-dom";
-import { AlertContext } from '../Contexts/AlertContext.js';
+import { AlertContext } from '../../Contexts/AlertContext.js';
 import {useContext} from "react";
 import Alert from "../Alert/Alert.js";
 

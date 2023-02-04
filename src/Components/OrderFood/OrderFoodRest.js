@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import Rest_rec from '../Data/Restaurants.json';
+import Rest_rec from '../../Data/Restaurants.json';
 import './OrderFoodRest.css';
 import { useParams } from "react-router-dom";
 

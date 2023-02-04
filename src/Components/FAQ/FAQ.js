@@ -4,15 +4,15 @@ import {Link, useNavigate } from "react-router-dom";
 
 export default function FAQ() {
     const [questions, setQuestions] = useState([
-      {question: "How to Order food delivery in train", answer: "Enter PNR, Pick Restaurant, Create Order, Pay, Get Delivered"},
-      {question: "How will customer know that his order is booked", answer: "Will recieve an Message confirmation "},
-      {question: "Who delivers the food to the customer on train", answer: "The Delivery Agent"}
+      {question: "Do you offer cash on delivery?", answer: "That option is not available currently."},
+      {question: "How to know order is booked?", answer: "You will recieve a SMS confirmation. Also you can check your Active Order and Past Orders. "},
+      {question: "Who delivers the food?", answer: "The Delivery Boy, he will contact you on mobile and will be coming to delivery food on your seat."}
     ]);
   
   return (
     <div className="faq-container">
-      <Link to="/" className="btn btn-info" role="button">Back</Link>
-      <h1 className="faq-title">FAQS on FOOD ORDERS IN TRAINS</h1>
+      <Link to="/" className="btn btn-info" role="button">Go Back</Link>
+      <h1 className="faq-title">FAQs </h1>
       <ul className="faq-list">
         {questions.map((item, index) => (
           <li className="faq-item" key={index}>

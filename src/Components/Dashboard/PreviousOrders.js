@@ -1,8 +1,8 @@
 import React from "react";
 import './ActiveOrders.css';
 import {useContext} from "react";
-import {UserContext} from '../Contexts/UserContext.js';
-import Active_Orders from '../Data/ActiveOrders.json';
+import {UserContext} from '../../Contexts/UserContext.js';
+import Active_Orders from '../../Data/ActiveOrders.json';
 
 export default function PreviousOrders(){
 

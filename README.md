@@ -15,7 +15,7 @@ To run the project you need Node and npm installed.
 2. Perform npm installon command prompt. This will install all dependencies.
 3. To run give npm start on the command line. Application will start running on http://localhost:3000.
 4. Note: Before running step 3 you should run json-server on port 3004 using following command.
-- Open terminal and navigate to src/constants folder
+- Open terminal and navigate to src/data folder
 - give command: 
 - json-server --watch APIResponses.json --port 3004
 

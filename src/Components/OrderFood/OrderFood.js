@@ -1,16 +1,18 @@
 import React from "react";
-import SearchInput from '../CentralPane/SearchInput.js';
 import FoodItemsDisplay from '../CentralPane/FoodItemsDisplay.js';
 import CustomerJourney from '../CentralPane/CustomerJourney.js';
 import Testimonials from '../CentralPane/Testimonials.js';
-import { useState } from "react";
+import { useContext, useState } from "react";
 import './OrderFood.css';
-import Stations from '../Data/Stations.json';
-import Trains from '../Data/Trains.json';
+import Stations from '../../Data/Stations.json';
+import Trains from '../../Data/Trains.json';
 import {Link} from "react-router-dom";
+import Alert from "../Alert/Alert.js";
+import { AlertContext } from '../../Contexts/AlertContext.js';
 
 export default function OrderFood(){
-    const [mode,setMode] = useState("-");
+
+    const [mode, setMode] = useState("-");
     const [query, setQuery] = useState("");
 
     const stationsList = Stations.filter(e => (e.station_code.toLowerCase().includes(query.toLowerCase()))
@@ -18,18 +20,26 @@ export default function OrderFood(){
     const trainsList = Trains.filter(e => (e.train_no.toLowerCase().includes(query.toLowerCase()))
                                         ||(e.train_name.toLowerCase().includes(query.toLowerCase())));
 
+    // Obtain alert context and define a local alert object
+    const [alertMessage, setAlert] = useContext(AlertContext);
+    const a = {
+        alertType: alertMessage.alertType,
+        alertMessage: alertMessage.alertMessage
+    }
+
     const handleRadioClick = (event) => {
 
         if (document.getElementById("radioTrain").checked == true ) { 
-            setMode("t"); 
+            setMode("t"); //Train
         } else if (document.getElementById("radioStation").checked == true ) { 
-            setMode("s"); 
+            setMode("s"); //Station
         } else {
-            setMode("-");
+            setMode("-"); //Default
         }
 
     }
 
+    //Search Button
     const handleSubmit = (event) => {
 
         event.preventDefault();     
@@ -43,10 +53,27 @@ export default function OrderFood(){
         }        
         setQuery(document.getElementById("searchBox").value);
 
+        a.alertMessage = "";
+        a.alertType = "default";
+        setAlert(a);
+
+        var inputDate = document.getElementById("jdate").value;
+        var inputDateFormat2 = new Date(inputDate);
+        var todaysDate = new Date();
+
+        if (document.getElementById("jdate").value === "") {
+            document.getElementById("jdate").valueAsDate = new Date();
+        } else if (inputDateFormat2 < todaysDate) { 
+            a.alertMessage = "Journey cannot be in past.";
+            a.alertType = "error";
+            setAlert(a);
+        }
     }
 
+    //******************* RETURN ********************
     return(
         <>
+            <Alert />
             <div id="order-bar">
 				<br/>                
 				<span id="OrderNowText"><b>Order Now:&nbsp;&nbsp;&nbsp;</b></span>

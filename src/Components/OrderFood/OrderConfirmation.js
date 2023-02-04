@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import {useContext} from "react";
 import { Link } from "react-router-dom";
-import { OrderContext } from '../Contexts/OrderContext.js';
+import { OrderContext } from '../../Contexts/OrderContext.js';
 
 export default function OrderConfirmation(props) {
     const [order, setOrder] = useContext(OrderContext);
@@ -10,7 +10,7 @@ export default function OrderConfirmation(props) {
     return (
         <div className="container-fluid">
             <div className="row ">
-                <h3><b className="col-sm-12">Check Order Details</b></h3>
+                <h3><b className="col-sm-12">Order Details</b></h3>
                 <div className="col-sm-12">.</div>
                 <div className="col-sm-12"><b>Order Date:</b> {order.orderDate}</div>
                 <div className="col-sm-12"><b>Order Number:</b> {order.orderNumber} </div>
