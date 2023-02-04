@@ -18,6 +18,10 @@ import CustJourneyHelp from './Components/CentralPane/CustJourneyHelp.js';
 import OrderFood from './Components/OrderFood/OrderFood.js';
 import OrderFoodTrain from './Components/OrderFood/OrderFoodTrain.js';
 import OrderFoodRest from './Components/OrderFood/OrderFoodRest.js';
+import OrderFoodMenu from './Components/OrderFood/OrderFoodMenu.js';
+import DisplayCart from './Components/Cart/DisplayCart.js';
+import OrderConfirmation from './Components/OrderFood/OrderConfirmation.js';
+import Payment from './Components/Payment/Payment';
 import { useParams } from "react-router-dom";
 import {
   BrowserRouter as Router,
@@ -26,6 +30,8 @@ import {
 } from "react-router-dom";
 import { UserContext } from './Components/Contexts/UserContext';
 import { AlertContext } from './Components/Contexts/AlertContext';
+import { CartContext, emptyCart } from './Components/Contexts/CartContext';
+import { OrderContext, sampleOrder } from './Components/Contexts/OrderContext';
 import { useState} from "react";
 
 function App() {  
@@ -38,6 +44,8 @@ function App() {
     isLoggedIn: false
   }  
   const [user, setUser] = useState(defaultUser1);
+  const [cart, setCart] = useState(emptyCart);
+  const [order, setOrder] = useState(sampleOrder);
 
   //set default message
   const defaultMessage1 = {
@@ -49,6 +57,8 @@ function App() {
   return ( 
     <UserContext.Provider value={[user, setUser]}> 
     <AlertContext.Provider value={[alert, setAlert]}> 
+    <CartContext.Provider value={[cart, setCart]}> 
+    <OrderContext.Provider value={[order, setOrder]}> 
     <Router>
         <div className="container"> 
           <div className="row">
@@ -60,21 +70,24 @@ function App() {
             
             <div className="column central-pane" id="BMM">              
               <Routes>
-                  <Route exact path="/" element={<CentralPane />}/>                  
-                  <Route exact path="/index" element={<CentralPane />}/>                  
+                  <Route exact path="/" element={<OrderFood />}/>                  
+                  <Route exact path="/index" element={<OrderFood />}/>                  
                   <Route exact path="/login" element={<Login test="test"/>}/>
                   <Route exact path="/register" element={<Registration />}/>
                   <Route exact path="/forgot-password" element={<ResetPassword />}/>
-                  <Route exact path="/home" element={<Home />}/>
+                  <Route exact path="/home" element={<OrderFood />}/>
                   <Route exact path="/dashboard" element={<Dashboard />}/>
                   <Route exact path="/order-food" element={<OrderFood />}/>
                   <Route exact path="/order-food/train/:train_id" element={<OrderFoodTrain/>}/>
                   <Route exact path="/order-food/station/:station_id" element={<OrderFoodRest/>}/>
+                  <Route exact path="/order-food/rest/:rest_id" element={<OrderFoodMenu/>}/>
+                  <Route exact path="/order-conf-page" element={<OrderConfirmation />} />
                   <Route exact path="/previous-orders" element={<PreviousOrders />}/>
                   <Route exact path="/profile" element={<UnderConstruction />}/>
                   <Route exact path="/rest-menu" element={<UnderConstruction />}/>
                   <Route exact path="/rest-orders" element={<UnderConstruction />}/>
-                  <Route exact path="/rest-settings" element={<UnderConstruction />}/>  
+                  <Route exact path="/rest-settings" element={<UnderConstruction />}/>
+                  <Route exact path="/payment" element={<Payment />}/>    
                   <Route exact path="/faq" element={<FAQ />}/>     
                   <Route exact path="/journey" element={<CustJourneyHelp />}/>  
                   <Route exact path="*" element={<NoPage />}/>
@@ -92,6 +105,9 @@ function App() {
                   <Route exact path="/journey" element={<Blank message="This page is placeholder."/>}/> 
                   <Route exact path="/dashboard" element={<Blank message=""/>}/>
                   <Route exact path="/order-food" element={<Blank message=""/>}/>
+                  <Route exact path="/order-food/rest/:rest_id" element={<DisplayCart />}/>
+                  <Route exact path="/order-conf-page" element={<Blank message="Check details and make payment."/>} />
+                  <Route exact path="/payment" element={<Blank message="Choose payment option and provide payment details."/>} />
                   <Route exact path="*" element={<Blank message=""/>}/>
               </Routes>
             </div>
@@ -103,6 +119,8 @@ function App() {
           </div>  
         </div>
     </Router>
+    </OrderContext.Provider>
+    </CartContext.Provider>
     </AlertContext.Provider>
     </UserContext.Provider>
   );

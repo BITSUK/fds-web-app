@@ -21,6 +21,7 @@ export default function Dashboard(){
     return(
         <>
             <Alert />
+            <h1>Dashboard</h1>
             <ActiveOrders/>
             {/* <SearchInput /> */}
             {/* <FoodItemsDisplay />  */}

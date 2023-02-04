@@ -5,24 +5,9 @@ import CustomerJourney from '../CentralPane/CustomerJourney.js';
 import Testimonials from '../CentralPane/Testimonials.js';
 import { useState } from "react";
 import './OrderFood.css';
-import Stations from '../../Constants/Stations.json';
-import Trains from '../../Constants/Trains.json';
+import Stations from '../Data/Stations.json';
+import Trains from '../Data/Trains.json';
 import {Link} from "react-router-dom";
-
-// function formatTrainRow(inputData){
-//     return (
-//         {inputData.length === 0 ? (
-//             <div>
-//                 <p className="table-row"><b>""</b></p>
-//             </div>
-//         ) : (   inputData.map(record => (
-//                 <div className="table-row">
-//                         {inputData.train_no} : {inputData.train_name}
-//                 </div>
-//             ))
-//          )}
-//     )
-// }
 
 export default function OrderFood(){
     const [mode,setMode] = useState("-");
@@ -48,6 +33,14 @@ export default function OrderFood(){
     const handleSubmit = (event) => {
 
         event.preventDefault();     
+        if (document.getElementById("radioTrain").checked == true ) { 
+            setMode("t"); 
+        } else if (document.getElementById("radioStation").checked == true ) { 
+            setMode("s"); 
+        } else {
+            document.getElementById("radioTrain").checked = true;
+            setMode("t"); 
+        }        
         setQuery(document.getElementById("searchBox").value);
 
     }
@@ -60,7 +53,9 @@ export default function OrderFood(){
 				<input type="radio" id="radioTrain" name="search-options" value="Train" onClick={handleRadioClick}/>&nbsp;
 				<label htmlFor="radioTrain">Train No</label>&nbsp;&nbsp;&nbsp;
 				<input type="radio" id="radioStation" name="search-options" value="Station" onClick={handleRadioClick}/>&nbsp;
-				<label htmlFor="radioStation">Station</label>
+				<label htmlFor="radioStation">Station</label>&nbsp;&nbsp;&nbsp;
+                <span>&nbsp;&nbsp;&nbsp;<b>Journey Date:&nbsp;&nbsp;</b></span>
+                <input type="date" id="jdate" name="jdate"></input>
 			</div>
 			<div id="search-container">
 				<form action="#">

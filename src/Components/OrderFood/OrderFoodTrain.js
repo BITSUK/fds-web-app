@@ -1,7 +1,7 @@
 import React from "react";
 import './OrderFood.css';
 import { useParams } from "react-router-dom";
-import Trains from '../../Constants/Trains.json';
+import Trains from '../Data/Trains.json';
 import {Link} from "react-router-dom";
 
 export default function OrderFoodTrain(){
@@ -11,7 +11,7 @@ export default function OrderFoodTrain(){
 
     return(
         <>
-            <div>
+            <div> 
 				<br/>                
 				<span id="Train No"><b>Train No: {inpParms["train_id"]}</b></span>
                 {stationList.length === 0 ? (

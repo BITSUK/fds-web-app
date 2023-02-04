@@ -1,6 +1,0 @@
-{
-  "userId" 	: "UID2023001",
-  "userName"   : "Amit Kumar",
-  "userRoles"   : ["customer"],
-  "userStatus" : "active"
-}
