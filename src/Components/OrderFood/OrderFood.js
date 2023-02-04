@@ -9,8 +9,10 @@ import Trains from '../../Data/Trains.json';
 import {Link} from "react-router-dom";
 import Alert from "../Alert/Alert.js";
 import { AlertContext } from '../../Contexts/AlertContext.js';
+import {UserContext} from '../../Contexts/UserContext.js';
 
 export default function OrderFood(){
+    const [userContext, setUserContext] = useContext(UserContext);
 
     const [mode, setMode] = useState("-");
     const [query, setQuery] = useState("");
@@ -37,6 +39,29 @@ export default function OrderFood(){
             setMode("-"); //Default
         }
 
+        var inputDate = document.getElementById("jdate").value;
+        var inputDateFormat2 = new Date(inputDate);
+        var todaysDate = new Date();
+
+        if (document.getElementById("jdate").value === "") {
+            document.getElementById("jdate").valueAsDate = new Date();
+            inputDate = document.getElementById("jdate").value;            
+        } else if (inputDateFormat2 < todaysDate) { 
+            a.alertMessage = "Journey cannot be in past.";
+            a.alertType = "error";
+            setAlert(a);
+        }
+
+    }
+    //Handle Date Change
+    const handleDateChange = (event) => {
+        a.alertMessage = "";
+        a.alertType = "default";
+        setAlert(a);
+        var d = document.getElementById("jdate").value;
+        var updatedUserContext = userContext;
+        updatedUserContext.jdate = d;
+        setUserContext(updatedUserContext);
     }
 
     //Search Button
@@ -63,6 +88,7 @@ export default function OrderFood(){
 
         if (document.getElementById("jdate").value === "") {
             document.getElementById("jdate").valueAsDate = new Date();
+            inputDate = document.getElementById("jdate").value;            
         } else if (inputDateFormat2 < todaysDate) { 
             a.alertMessage = "Journey cannot be in past.";
             a.alertType = "error";
@@ -82,7 +108,7 @@ export default function OrderFood(){
 				<input type="radio" id="radioStation" name="search-options" value="Station" onClick={handleRadioClick}/>&nbsp;
 				<label htmlFor="radioStation">Station</label>&nbsp;&nbsp;&nbsp;
                 <span>&nbsp;&nbsp;&nbsp;<b>Journey Date:&nbsp;&nbsp;</b></span>
-                <input type="date" id="jdate" name="jdate"></input>
+                <input type="date" id="jdate" name="jdate" onChange={handleDateChange}></input>
 			</div>
 			<div id="search-container">
 				<form action="#">
@@ -103,7 +129,7 @@ export default function OrderFood(){
                             </div>
                         ) : (   trainsList.map(record => (
                                 <div className="table-row">                                     
-                                    <Link to={`/order-food/train/${record.train_no}`} key={record.id}>
+                                    <Link to={`/order-food/train/${record.train_no}` } key={record.id}>
                                        - {record.train_no} : {record.train_name}
                                     </Link>
                                 </div>
@@ -119,8 +145,8 @@ export default function OrderFood(){
                             </div>
                         ) : (   stationsList.map(record => (
                                 <div className="table-row">                                    
-                                    <Link to={`/order-food/station/${record.station_name}`} key={record.id}>
-                                       - {record.station_name}
+                                    <Link to={`/order-food/station/${record.station_code}`} key={record.id}>
+                                       - {record.station_name} ({record.station_code})
                                     </Link>
                                 </div>
                             ))

@@ -2,11 +2,28 @@ import React, { useState, useEffect } from "react";
 import {useContext} from "react";
 import { Link } from "react-router-dom";
 import { OrderContext } from '../../Contexts/OrderContext.js';
+import { CartContext, emptyCart} from '../../Contexts/CartContext.js';
+import {UserContext} from '../../Contexts/UserContext.js';
+import './OrderFood.css';
 
 export default function OrderConfirmation(props) {
     const [order, setOrder] = useContext(OrderContext);
     const orderItems = order.orderItems;
+    
+    const [userContext, setUserContext] = useContext(UserContext);
 
+    const [cart, setCart] = useContext(CartContext);
+    const cartItems = cart.items;  //Extract cart items in a separate variable
+
+    var updatedOrder = order;
+    updatedOrder.orderItems = cartItems;
+    // updatedOrder.orderDate = new Date();
+    updatedOrder.customerName = userContext.name;
+    updatedOrder.station = userContext.station;
+    updatedOrder.deliveryDate = userContext.jdate;
+    setOrder(updatedOrder);
+
+    //************** RETURN ***************/
     return (
         <div className="container-fluid">
             <div className="row ">
@@ -18,7 +35,11 @@ export default function OrderConfirmation(props) {
                 <div className="col-sm-12"><b>Mobile No:</b> {order.mobileNo} </div>
                 <div className="col-sm-12"><b>Station:</b> {order.station} </div>
                 <div className="col-sm-12"><b>Delivery Date:</b> {order.deliveryDate} </div>
-                <div className="col-sm-12"><b>Train/Coach/Seat:</b> {order.seatDetails} </div>
+                <div className="col-sm-12">
+                    <b>Train/Coach/Seat:</b>
+                    <input type="text" id="SeatDtls" value= {order.seatDetails}/> 
+                    
+                </div>
 
                 <div className="col-sm-12">.</div>
                 <br />

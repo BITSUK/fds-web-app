@@ -1,9 +1,79 @@
 [
-    {  "id": "1", "station_code" : "NDLS", "station_name" : "Delhi"          },
-    {  "id": "2", "station_code" : "MTJ",  "station_name" : "Mathura"        },
-    {  "id": "3", "station_code" : "KOTA", "station_name" : "Kota"           },
-    {  "id": "4", "station_code" : "RTM",  "station_name" : "Ratlam"         },
-    {  "id": "5", "station_code" : "BRC",  "station_name" : "Vadodara"       },
-    {  "id": "6", "station_code" : "ST",   "station_name" : "Surat"          },
-    {  "id": "7", "station_code" : "MMCT", "station_name" : "Mumbai"         }
+    {  
+        "id": "1", 
+        "station_code" : "NDLS", 
+        "station_name" : "Delhi",
+        "trains" : [ 
+            {  "train_no": "12926"    },
+            {  "train_no": "22210"    },
+            {  "train_no": "12910"    },
+            {  "train_no": "12432"    },
+            {  "train_no": "02954"    }
+        ]          
+    },
+    {  
+        "id": "2", 
+        "station_code" : "MTJ",  
+        "station_name" : "Mathura",
+        "trains" : [ 
+            {  "train_no": "12926"    },
+            {  "train_no": "12910"    },
+            {  "train_no": "02954"    }
+        ]      
+    },
+    {  
+        "id": "3", 
+        "station_code" : "KOTA", 
+        "station_name" : "Kota",
+        "trains" : [ 
+            {  "train_no": "12926"    },
+            {  "train_no": "22210"    },
+            {  "train_no": "12910"    },
+            {  "train_no": "12432"    },
+            {  "train_no": "02954"    }
+        ]           
+    },
+    {  
+        "id": "4", 
+        "station_code" : "RTM",  
+        "station_name" : "Ratlam",
+        "trains" : [ 
+            {  "train_no": "12926"    },
+            {  "train_no": "22210"    },
+            {  "train_no": "12910"    },
+            {  "train_no": "02954"    }
+        ]         
+    },
+    {  
+        "id": "5", 
+        "station_code" : "BRC",  
+        "station_name" : "Vadodara",
+        "trains" : [ 
+            {  "train_no": "12926"    },
+            {  "train_no": "22210"    },
+            {  "train_no": "12910"    },
+            {  "train_no": "12432"    }
+        ]       
+    },
+    {  
+        "id": "6", 
+        "station_code" : "ST",   
+        "station_name" : "Surat",
+        "trains" : [ 
+            {  "train_no": "12926"    },
+            {  "train_no": "12910"    }
+        ]          
+    },
+    {  
+        "id": "7", 
+        "station_code" : "MMCT", 
+        "station_name" : "Mumbai",
+        "trains" : [ 
+            {  "train_no": "12926"    },
+            {  "train_no": "22210"    },
+            {  "train_no": "12910"    },
+            {  "train_no": "12432"    },
+            {  "train_no": "02954"    }
+        ]         
+    }
 ]

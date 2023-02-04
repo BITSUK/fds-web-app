@@ -52,7 +52,10 @@ export default function Login(props) {
                         uid: data.userId,
                         name: data.userName,
                         role: inputRole,
-                        isLoggedIn: true
+                        isLoggedIn: true,
+                        train: "",
+                        station: "",
+                        jdate: ""
                     })
                     
                     a.alertMessage = "";

@@ -2,6 +2,7 @@
     {
         "rest_id": "D01",
         "rest_name": "Shree Sai Bhojanle",
+        "rest_location_code": "NDLS",
         "rest_location": "Delhi",
         "rating": 4,
         "image_link": "https://rb.gy/doe9fe/images/1.png",
@@ -91,6 +92,7 @@
 	{
         "rest_id": "D02",
         "rest_name": "Oberoi",
+        "rest_location_code": "NDLS",
         "rest_location": "Delhi",
         "rating": 3,
         "image_link": "./images/1.png",
@@ -116,6 +118,7 @@
 	{
         "rest_id": "D03",
         "rest_name": "Pizza Hut",
+        "rest_location_code": "NDLS",
         "rest_location": "Delhi",
         "rating": 2,
         "image_link": "./images/1.png",
@@ -141,6 +144,7 @@
     {
         "rest_id": "K01",
         "rest_name": "Sai Palace",
+        "rest_location_code": "KOTA",
         "rest_location": "Kota",
         "rating": 3,
         "image_link": "./images/1.png",
@@ -166,6 +170,7 @@
     {
         "rest_id": "R01",
         "rest_name": "Domino",
+        "rest_location_code": "RTM",
         "rest_location": "Ratlam",
         "rating": 4,
         "image_link": "./images/1.png",
@@ -191,6 +196,7 @@
 	{
         "rest_id": "R02",
         "rest_name": "Sai Bhojanle",
+        "rest_location_code": "RTM",
         "rest_location": "Ratlam",
         "rating": 4,
         "image_link": "https://rb.gy/doe9fe/images/1.png",
@@ -272,6 +278,7 @@
 	{
         "rest_id": "M1",
         "rest_name": "Oberoi",
+        "rest_location_code": "MMCT",
         "rest_location": "Mumbai",
         "rating": 3,
         "image_link": "./images/1.png",

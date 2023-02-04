@@ -3,18 +3,31 @@ import { Link } from "react-router-dom";
 import Rest_rec from '../../Data/Restaurants.json';
 import './OrderFoodRest.css';
 import { useParams } from "react-router-dom";
+import {UserContext} from '../../Contexts/UserContext.js';
+import { useContext } from "react";
 
 export default function OrderFoodRest() {
+    const [userContext, setUserContext] = useContext(UserContext);
+
     const inpParms = useParams();
     const [query, setQuery] = useState("");
-    const filteredRestaurants = Rest_rec.filter(e => (e.rest_location.toLowerCase().includes(inpParms["station_id"].toLowerCase())));
+    const filteredRestaurants = Rest_rec.filter(e => (e.rest_location_code.toLowerCase().includes(inpParms["station_id"].toLowerCase())));
     const currentItems = filteredRestaurants.filter(e => (e.rest_name.toLowerCase().includes(query.toLowerCase())));
 
+    var s = inpParms["station_id"];
+    var updatedUserContext = userContext;
+    updatedUserContext.station = s;
+    setUserContext(updatedUserContext);
 
+  //************** RETURN ***************
   return (
     <div className="container-fluid">
         <div className="row content">
-            <div><b>Restaurants @ {inpParms["station_id"]}</b></div>
+            <div>
+                <span><b>Restaurants @ {inpParms["station_id"]}</b></span>
+                &nbsp;&nbsp;&nbsp;&nbsp;
+                <span><b>Train:<input type="text" id="train" value={userContext.train} /></b></span>
+            </div>
             <br/>
             <div className="col-sm-12">
                 <div >

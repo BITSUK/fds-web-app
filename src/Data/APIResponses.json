@@ -3,7 +3,8 @@
       { "id": "001", "userId" : "UID001", "userName"   : "Amit",      "userRoles"   : ["customer"],                  "userStatus" : "active" },
       { "id": "002", "userId" : "UID002", "userName"   : "Deepak",    "userRoles"   : ["restaurant"],                "userStatus" : "active" },
       { "id": "003", "userId" : "UID003", "userName"   : "Priya",     "userRoles"   : ["customer","restaurant"],     "userStatus" : "active" },
-      { "id": "004", "userId" : "UID004", "userName"   : "Rana",      "userRoles"   : ["admin"],                     "userStatus" : "active" }
+      { "id": "004", "userId" : "UID004", "userName"   : "Rana",      "userRoles"   : ["admin"],                     "userStatus" : "active" },
+      { "id": "005", "userId" : "hello@gmail.com", "userName"   : "Hello",      "userRoles"   : ["customer"],                     "userStatus" : "active" }
     ],    
     "trains": [
       { "id": "12926",

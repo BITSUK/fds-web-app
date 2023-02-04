@@ -4,7 +4,10 @@ export const defaultUser = {
     uid: "Guest",
     name: "Guest",
     role: "default",
-    isLoggedIn: false
+    isLoggedIn: false,
+    train: "",
+    station: "",
+    jdate: ""
 }
 
 export const UserContext = createContext(defaultUser);

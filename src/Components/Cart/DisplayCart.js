@@ -1,8 +1,7 @@
 import React, { useState, useEffect } from "react";
 import {useContext} from "react";
 import { Link, useNavigate} from "react-router-dom";
-import { CartContext} from '../../Contexts/CartContext.js';
-import { emptyCart} from '../../Contexts/CartContext.js';
+import { CartContext, emptyCart} from '../../Contexts/CartContext.js';
 import {UserContext} from '../../Contexts/UserContext.js';
 import './DisplayCart.css';
 

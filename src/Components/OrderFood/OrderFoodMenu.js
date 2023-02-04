@@ -2,13 +2,19 @@ import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import Rest_rec from '../../Data/Restaurants.json';
 import './OrderFoodMenu.css';
+import {useContext} from "react";
 import { useParams } from "react-router-dom";
+import { CartContext, emptyCart} from '../../Contexts/CartContext.js';
+import { Button } from "react-bootstrap";
 
 export default function OrderFoodMenu() {
     const inpParms = useParams();
     const [query, setQuery] = useState("");
     const [vegFilter, setVegFilter] = useState("Veg");
     const [nonVegFilter, setNonVegFilter] = useState("Non-Veg");
+
+    const [cart, setCart] = useContext(CartContext);
+
     const filteredRestMenu = Rest_rec.filter(e => (e.rest_id.toLowerCase().includes(inpParms["rest_id"].toLowerCase())));
     const restMenuItems = filteredRestMenu[0].menu_item;
     const filteredMenuItems1 = restMenuItems.filter(e => (e.menu_name.toLowerCase().includes(query.toLowerCase())))
@@ -29,6 +35,22 @@ export default function OrderFoodMenu() {
         }
     }
 
+    const addToCart = (item_id, name, price) => {
+        var c_itms = cart.items;
+        c_itms[c_itms.length] = {
+            item_id : item_id,
+            item_name : name,
+            item_price : price,
+            item_quantity : "1"
+        }
+        var updatedCart = cart;
+        updatedCart.items = c_itms;
+
+        setCart(updatedCart);        
+        return;
+    }
+
+    //**************** RETURN ***************
     return (
         <div className="container-fluid">
             <div className="row content">
@@ -70,7 +92,9 @@ export default function OrderFoodMenu() {
                             </div>
                             <div className="col-sm-2">
                                 <div >                            
-                                    <Link to="#">Add</Link>
+                                    {/* <Link to="#">Add</Link> */}
+                                    {/* <Link to="#" onClick={() => {addToCart(record.menu_id,record.menu_name,record.menu_price )}}>Add</Link> */}
+                                    <Link to="#" onClick={addToCart(record.menu_id,record.menu_name,record.menu_price )}>Add</Link>
                                 </div>
                             </div>
                         </div>
