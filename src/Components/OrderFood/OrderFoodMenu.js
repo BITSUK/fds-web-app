@@ -44,6 +44,8 @@ export default function OrderFoodMenu() {
         }
     }
 
+    //If URL is path="/order-food/rest/:rest_id/:menu_id?menuName=""&menuPrice=""
+    //then extract menu_id, menu_name and menu_price and add to the cart
     const addToCart = (item_id, name, price) => {
         var c_itms = cart.items;
         c_itms[c_itms.length] = {
@@ -104,9 +106,8 @@ export default function OrderFoodMenu() {
                                 </div>
                                 <div className="col-sm-2">
                                     <div >                            
-                                        {/* <Link to="#">Add</Link> */}
-                                        {/* <Link to="#" onClick={() => {addToCart(record.menu_id,record.menu_name,record.menu_price )}}>Add</Link> */}
-                                        <Link to="#" onClick={addToCart(record.menu_id,record.menu_name,record.menu_price )}>Add</Link>
+                                        <Link to={`/order-food/rest/${userContext.restaurant}/${record.menu_id}?menuName=${record.menu_name}&menuPrice=${record.menu_price}`} key={record.menu_id}>Add</Link>
+                                        {/* <Link to="#" onClick={addToCart(record.menu_id,record.menu_name,record.menu_price )}>Add</Link> */}
                                     </div>
                                 </div>
                             </div>
@@ -114,6 +115,8 @@ export default function OrderFoodMenu() {
                         )}
                     
                     </div>
+                    .<br/>
+                    <br/>
                 </div>
             </div>
         </>

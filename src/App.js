@@ -62,6 +62,7 @@ export default function App() {
                     <Route exact path="/order-food/train/:train_id" element={<OrderFoodTrain/>}/>
                     <Route exact path="/order-food/station/:station_id" element={<OrderFoodRest/>}/>
                     <Route exact path="/order-food/rest/:rest_id" element={<OrderFoodMenu/>}/>
+                    <Route exact path="/order-food/rest/:rest_id/:menu_id" element={<OrderFoodMenu/>}/>
                     <Route exact path="/order-conf-page" element={<OrderConfirmation />} />
                     <Route exact path="/previous-orders" element={<PreviousOrders />}/>
                     <Route exact path="/profile" element={<UnderConstruction />}/>
@@ -87,6 +88,7 @@ export default function App() {
                     <Route exact path="/dashboard" element={<Blank message="This is dashboard page. For placing order click on Order Food."/>}/>
                     <Route exact path="/order-food" element={<Blank message="Enter Train or Station details."/>}/>
                     <Route exact path="/order-food/rest/:rest_id" element={<DisplayCart />}/>
+                    <Route exact path="/order-food/rest/:rest_id/:menu_id" element={<DisplayCart />}/>
                     <Route exact path="/order-conf-page" element={<Blank message="Check details and make payment."/>} />
                     <Route exact path="/payment" element={<Blank message="Choose payment option and provide payment details."/>} />
                     <Route exact path="*" element={<Blank message=""/>}/>

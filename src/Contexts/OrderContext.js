@@ -5,9 +5,11 @@ export const sampleOrder = {
     orderNumber  : "FDS0132",
     customerName : "HAPPY SINGH",
     mobileNo     : "9988776655",
-    station      : "Kota",
+    station      : "NDLS",
+    restaurant   : "Shree Sai Bhojanle",
+    train        : "12910",
+    seatDetails  : "B1/20",
     deliveryDate : "15/02/2023",
-    seatDetails  : "12910/B1/20",
     orderItems: [
         {
             item_id : "ITM0001",

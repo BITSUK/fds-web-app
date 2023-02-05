@@ -17,6 +17,11 @@ export default function OrderConfirmation(props) {
 
     var updatedOrder = order;
     updatedOrder.orderItems = cartItems;
+    updatedOrder.totalPrice = cart.totalPrice;
+    updatedOrder.discount = cart.discount;
+    updatedOrder.taxes = cart.taxes;
+    updatedOrder.netprice = cart.netprice;
+
     // updatedOrder.orderDate = new Date();
     updatedOrder.customerName = userContext.name;
     updatedOrder.station = userContext.station;
@@ -31,14 +36,31 @@ export default function OrderConfirmation(props) {
                 <div className="col-sm-12">.</div>
                 <div className="col-sm-12"><b>Order Date:</b> {order.orderDate}</div>
                 <div className="col-sm-12"><b>Order Number:</b> {order.orderNumber} </div>
-                <div className="col-sm-12"><b>Customer Name:</b> {order.customerName} </div>
-                <div className="col-sm-12"><b>Mobile No:</b> {order.mobileNo} </div>
+                {userContext.isLoggedIn == true ? (
+                        <div className="col-sm-12"><b>Customer Name:</b> {order.customerName} </div> 
+                ) : (
+                    <div className="col-sm-12">
+                        <b>Customer Name:</b>
+                        <input type="text" id="SeatDtls" value= {order.customerName}/>
+                    </div>
+                )
+                }
+                {userContext.isLoggedIn == true ? (
+                    <div className="col-sm-12"><b>Mobile No:</b> {order.mobileNo} </div>
+                ) : (
+                    <div className="col-sm-12">
+                        <b>Mobile No:</b>
+                        <input type="text" id="SeatDtls" value= {order.mobileNo} /> 
+                    </div>
+                )
+                }
+                {/* <div className="col-sm-12"><b>Mobile No:</b> {order.mobileNo} </div> */}
                 <div className="col-sm-12"><b>Station:</b> {order.station} </div>
                 <div className="col-sm-12"><b>Delivery Date:</b> {order.deliveryDate} </div>
+                <div className="col-sm-12"><b>Train:</b> {order.train} {order.trainName} </div>
                 <div className="col-sm-12">
-                    <b>Train/Coach/Seat:</b>
+                    <b>Coach/Seat:</b>
                     <input type="text" id="SeatDtls" value= {order.seatDetails}/> 
-                    
                 </div>
 
                 <div className="col-sm-12">.</div>

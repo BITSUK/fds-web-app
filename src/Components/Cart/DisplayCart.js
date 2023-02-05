@@ -24,6 +24,17 @@ export default function DisplayCart(props) {
             return; //This code is not written
     }
 
+    //Handles checkout
+    const handleCheckOut = (event) => {
+        event.preventDefault();  
+        if (cartItems[0].item_name != "No item in cart") {
+            navigate("/order-conf-page");
+        } else {
+            alert("Your cart is empty");
+        }
+
+    }
+
     // ****************** RETURN ********************
     return (
         <div className="container-fluid">
@@ -87,7 +98,13 @@ export default function DisplayCart(props) {
                 </div>
                 <span className="white-color-text">.</span>                
                 <hr className="horizontal-line"/>
-                <Link to={userContext.isLoggedIn? '/order-conf-page': '/login'} className="btn btn-primary" role="button" >Checkout</Link>    
+                {/* <Link to={userContext.isLoggedIn? '/order-conf-page': '/login'} className="btn btn-primary" role="button" >Checkout</Link>     */}
+                <button type="submit" className="btn btn-primary" onClick={handleCheckOut}>Checkout</button>    
+                <div>
+                    .<dr/>
+                    <dr/>
+                    <dr/>
+                </div>
             </div>
         </div>
     )
