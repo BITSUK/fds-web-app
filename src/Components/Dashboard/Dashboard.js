@@ -1,7 +1,7 @@
 import React from "react";
-import DefaultDashboard from './DefaultDashboard.js';
-import CustomerDashboard from './CustomerDashboard.js';
-import RestaurantDashboard from './RestaurantDashboard.js';
+import DashboardDefault from './DashboardDefault.js';
+import DashboardCust from './DashboardCust.js';
+import DashboardRest from './DashboardRest.js';
 import { UserContext } from '../../Contexts/UserContext.js';
 import { useContext } from 'react';
 import './Dashboard.css';
@@ -13,9 +13,9 @@ export default function Dashboard(){
     //Dependiing upon user type show different dashboard
     return(
         <>
-           {(userContext.role == "customer")   && <CustomerDashboard />} 
-           {(userContext.role == "restaurant") && <RestaurantDashboard />}
-           {(userContext.role == "default")    && <DefaultDashboard />}
+           {(userContext.role == "customer")   && <DashboardCust />} 
+           {(userContext.role == "restaurant") && <DashboardRest />}
+           {(userContext.role == "default")    && <DashboardDefault />}
         </>
     )    
 }

@@ -1,7 +1,7 @@
 .login-form-container {
     width: 50%;
     margin-left: 10%;
-    margin-top: 20px;
+    margin-top: 0;
 }
 
 .login-form-components {
@@ -10,4 +10,8 @@
 
 .btn {
     margin-top: 5px;
+}
+
+.no-margin {
+    margin: 0;
 }

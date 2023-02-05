@@ -27,10 +27,10 @@ export default function DisplayCart(props) {
     //Handles checkout
     const handleCheckOut = (event) => {
         event.preventDefault();  
-        if (cartItems[0].item_name != "No item in cart") {
-            navigate("/order-conf-page");
-        } else {
+        if ((cartItems.length === 1) && (cartItems[0].item_name === "No item in cart")) {
             alert("Your cart is empty");
+        } else {
+            navigate("/order-conf-page");
         }
 
     }
@@ -98,8 +98,8 @@ export default function DisplayCart(props) {
                 </div>
                 <span className="white-color-text">.</span>                
                 <hr className="horizontal-line"/>
-                {/* <Link to={userContext.isLoggedIn? '/order-conf-page': '/login'} className="btn btn-primary" role="button" >Checkout</Link>     */}
-                <button type="submit" className="btn btn-primary" onClick={handleCheckOut}>Checkout</button>    
+                <Link to={userContext.isLoggedIn? '/order-conf-page': '/login'} className="btn btn-primary" role="button" >Checkout</Link>    
+                {/* <button type="submit" className="btn btn-primary" onClick={handleCheckOut}>Checkout</button>     */}
                 <div>
                     .<dr/>
                     <dr/>

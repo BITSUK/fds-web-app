@@ -4,11 +4,11 @@
         "station_code" : "NDLS", 
         "station_name" : "Delhi",
         "trains" : [ 
-            {  "train_no": "12926"    },
-            {  "train_no": "22210"    },
-            {  "train_no": "12910"    },
-            {  "train_no": "12432"    },
-            {  "train_no": "02954"    }
+            {  "train_no": "12926", "train_name" : "Paschim SF Express"},
+            {  "train_no": "22210", "train_name" : "Duronto Express"},
+            {  "train_no": "12910", "train_name" : "Garibrath"    },
+            {  "train_no": "12432", "train_name" : "Rajdhani"    },
+            {  "train_no": "02954", "train_name" : "Golden Temple"}
         ]          
     },
     {  
@@ -16,9 +16,9 @@
         "station_code" : "MTJ",  
         "station_name" : "Mathura",
         "trains" : [ 
-            {  "train_no": "12926"    },
-            {  "train_no": "12910"    },
-            {  "train_no": "02954"    }
+            {  "train_no": "12926", "train_name" : "Paschim SF Express" },
+            {  "train_no": "12910", "train_name" : "Garibrath"    },
+            {  "train_no": "02954", "train_name" : "Golden Temple"    }
         ]      
     },
     {  
@@ -26,11 +26,11 @@
         "station_code" : "KOTA", 
         "station_name" : "Kota",
         "trains" : [ 
-            {  "train_no": "12926"    },
-            {  "train_no": "22210"    },
-            {  "train_no": "12910"    },
-            {  "train_no": "12432"    },
-            {  "train_no": "02954"    }
+            {  "train_no": "12926", "train_name" : "Paschim SF Express" },
+            {  "train_no": "22210", "train_name" : "Duronto Express"    },
+            {  "train_no": "12910", "train_name" : "Garibrath"    },
+            {  "train_no": "12432", "train_name" : "Rajdhani"    },
+            {  "train_no": "02954", "train_name" : "Golden Temple" }
         ]           
     },
     {  
@@ -38,10 +38,10 @@
         "station_code" : "RTM",  
         "station_name" : "Ratlam",
         "trains" : [ 
-            {  "train_no": "12926"    },
-            {  "train_no": "22210"    },
-            {  "train_no": "12910"    },
-            {  "train_no": "02954"    }
+            {  "train_no": "12926", "train_name" : "Paschim SF Express" },
+            {  "train_no": "22210", "train_name" : "Duronto Express"},
+            {  "train_no": "12910", "train_name" : "Garibrath"    },
+            {  "train_no": "02954", "train_name" : "Golden Temple"}
         ]         
     },
     {  
@@ -49,10 +49,10 @@
         "station_code" : "BRC",  
         "station_name" : "Vadodara",
         "trains" : [ 
-            {  "train_no": "12926"    },
-            {  "train_no": "22210"    },
-            {  "train_no": "12910"    },
-            {  "train_no": "12432"    }
+            {  "train_no": "12926", "train_name" : "Paschim SF Express" },
+            {  "train_no": "22210", "train_name" : "Duronto Express"    },
+            {  "train_no": "12910", "train_name" : "Garibrath"    },
+            {  "train_no": "12432", "train_name" : "Rajdhani"}
         ]       
     },
     {  
@@ -60,8 +60,8 @@
         "station_code" : "ST",   
         "station_name" : "Surat",
         "trains" : [ 
-            {  "train_no": "12926"    },
-            {  "train_no": "12910"    }
+            {  "train_no": "12926", "train_name" : "Paschim SF Express"},
+            {  "train_no": "12910", "train_name" : "Garibrath"}
         ]          
     },
     {  
@@ -69,11 +69,11 @@
         "station_code" : "MMCT", 
         "station_name" : "Mumbai",
         "trains" : [ 
-            {  "train_no": "12926"    },
-            {  "train_no": "22210"    },
-            {  "train_no": "12910"    },
-            {  "train_no": "12432"    },
-            {  "train_no": "02954"    }
+            {  "train_no": "12926", "train_name" : "Paschim SF Express"},
+            {  "train_no": "22210", "train_name" : "Duronto Express"   },
+            {  "train_no": "12910", "train_name" : "Garibrath"    },
+            {  "train_no": "12432", "train_name" : "Rajdhani"    },
+            {  "train_no": "02954", "train_name" : "Golden Temple" }
         ]         
     }
 ]

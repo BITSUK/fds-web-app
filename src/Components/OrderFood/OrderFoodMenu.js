@@ -106,7 +106,7 @@ export default function OrderFoodMenu() {
                                 </div>
                                 <div className="col-sm-2">
                                     <div >                            
-                                        <Link to={`/order-food/rest/${userContext.restaurant}/${record.menu_id}?menuName=${record.menu_name}&menuPrice=${record.menu_price}`} key={record.menu_id}>Add</Link>
+                                        <Link to={`/order-food/restaurant/${userContext.restaurant}/${record.menu_id}?menuName=${record.menu_name}&menuPrice=${record.menu_price}`} key={record.menu_id}>Add</Link>
                                         {/* <Link to="#" onClick={addToCart(record.menu_id,record.menu_name,record.menu_price )}>Add</Link> */}
                                     </div>
                                 </div>

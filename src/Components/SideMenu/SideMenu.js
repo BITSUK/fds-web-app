@@ -10,14 +10,9 @@ import RestaurantMenu from "./RestaurantMenu.js";
 export default function SideMenu(){
 
 	const [userContext, setUserContext] = useContext(UserContext);	
-	
-	// Obtain alert context and define a local alert object    
     const [alertMessage, setAlert] = useContext(AlertContext);
-    const a = {
-        alertType: alertMessage.alertType,
-        alertMessage: alertMessage.alertMessage
-    } 
-
+    const a = { alertType: "default", alertMessage: ""};
+	
 	// Handles Logout
 	const handleLogout = (event) => {
 
@@ -28,18 +23,17 @@ export default function SideMenu(){
 		setAlert(a);
 	}
 
-	//This function dynamically renders side menu options looking at user role and login status
+	//Role base menu
 	function ShowMenuOptions() {
-
 		return (
 			<>
 				<div> 
 					{!userContext.isLoggedIn && <Link to="/login">Login</Link>}
 				</div>
 				<div>
-					{(userContext.role == "customer") && <CustomerMenu />}
-					{(userContext.role == "restaurant") && <RestaurantMenu />}
-					{(userContext.role == "default") && <Link to="/order-food">Order Food</Link>}
+					{(userContext.role === "customer") && <CustomerMenu />}
+					{(userContext.role === "restaurant") && <RestaurantMenu />}
+					{(userContext.role === "default") && <Link to="/order-food">Order Food</Link>}
 				</div>
 				<div>
 					{userContext.isLoggedIn && <Link to="/login" onClick={handleLogout}>Logout</Link>}					

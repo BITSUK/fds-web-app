@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import Rest_rec from '../../Data/Restaurants.json';
+import Restaurants from '../../Data/Restaurants.json';
 import './OrderFoodRest.css';
 import { useParams } from "react-router-dom";
 import {UserContext} from '../../Contexts/UserContext.js';
@@ -13,10 +13,14 @@ export default function OrderFoodRest() {
 
     const inpParms = useParams();
     const [query, setQuery] = useState("");
-    const filteredRestaurants = Rest_rec.filter(e => (e.rest_location_code.toLowerCase().includes(inpParms["station_id"].toLowerCase())));
-    const currentItems = filteredRestaurants.filter(e => (e.rest_name.toLowerCase().includes(query.toLowerCase())));
 
-    var s = inpParms["station_id"];
+    const filteredRestaurants = Restaurants.filter(e => 
+        (e.rest_location_code.toLowerCase().includes(inpParms["station_code"].toLowerCase())));
+
+    const currentItems = filteredRestaurants.filter(e => 
+        (e.rest_name.toLowerCase().includes(query.toLowerCase())));
+
+    var s = inpParms["station_code"];
     var updatedUserContext = userContext;
     updatedUserContext.station = s;
     setUserContext(updatedUserContext);
@@ -28,7 +32,7 @@ export default function OrderFoodRest() {
         <div className="container-fluid">
             <div className="row content">
                 <div>
-                    <span><b>Restaurants @ {inpParms["station_id"]}</b></span>
+                    <span><b>Restaurants @ {inpParms["station_code"]}</b></span>
                     &nbsp;&nbsp;&nbsp;&nbsp;
                     <span><b>Train:<input type="text" id="train" value={userContext.train} /></b></span>
                 </div>
@@ -43,7 +47,7 @@ export default function OrderFoodRest() {
                         <div className="col-sm-8">
                             <br />
                             <div >
-                            <p>No record found</p>
+                            <p>No restaurant found</p>
                             </div>
                         </div>
                         </div>
@@ -58,7 +62,7 @@ export default function OrderFoodRest() {
                         </div>
                         <div className="col-sm-4">
                             <div >                            
-                                <Link to={`/order-food/rest/${record.rest_id}`} key={record.rest_id}>Order Now</Link>
+                                <Link to={`/order-food/restaurant/${record.rest_id}`} key={record.rest_id}>Order Now</Link>
                             </div>
                         </div>
                     </div>

@@ -14,22 +14,47 @@ import {UserContext} from '../../Contexts/UserContext.js';
 export default function OrderFood(){
     const [userContext, setUserContext] = useContext(UserContext);
 
-
     const [mode, setMode] = useState("-");
     const [query, setQuery] = useState("");
 
-    const stationsList = Stations.filter(e => (e.station_code.toLowerCase().includes(query.toLowerCase()))
-                                            ||(e.station_name.toLowerCase().includes(query.toLowerCase())));
-    const trainsList = Trains.filter(e => (e.train_no.toLowerCase().includes(query.toLowerCase()))
-                                        ||(e.train_name.toLowerCase().includes(query.toLowerCase())));
+    const stationsList = Stations.filter(e => 
+            (e.station_code.toLowerCase().includes(query.toLowerCase())) ||
+            (e.station_name.toLowerCase().includes(query.toLowerCase())) );
 
-    // Obtain alert context and define a local alert object
+    const trainsList = Trains.filter(e => 
+            (e.train_no.toLowerCase().includes(query.toLowerCase()))    ||
+            (e.train_name.toLowerCase().includes(query.toLowerCase()))  );
+
+    
     const [alertMessage, setAlert] = useContext(AlertContext);
-    const a = {
-        alertType: alertMessage.alertType,
-        alertMessage: alertMessage.alertMessage
-    }
+    const a = { alertType: "default", alertMessage: "" }
 
+    const checkJourneyDate = () => {
+
+        var inptJDate = document.getElementById("jdate").value;
+        var todaysDate = new Date();
+        todaysDate = todaysDate.toISOString().substr(0, 10);
+
+        if (inptJDate === "")
+        {         
+            inptJDate = todaysDate;
+        } else {         
+            if (inptJDate < todaysDate) { 
+                alert("Journey cannot be in past. Set back to todays date") ;
+                inptJDate = todaysDate;
+            }
+        }
+
+        //if date changed set date on screen and in context
+        document.getElementById("jdate").value = inptJDate;
+        if (inptJDate != updatedUserContext.jdate) {
+            var updatedUserContext = userContext;
+            updatedUserContext.jdate = inptJDate;
+            setUserContext(updatedUserContext);
+        }
+    }   
+
+    //Set mode depending what user choose - Train or Station
     const handleRadioClick = (event) => {
 
         if (document.getElementById("radioTrain").checked == true ) { 
@@ -39,62 +64,38 @@ export default function OrderFood(){
         } else {
             setMode("-"); //Default
         }
+        setAlert(a);
 
-        var inputDate = document.getElementById("jdate").value;
-        var inputDateFormat2 = new Date(inputDate);
-        var todaysDate = new Date();
-
-        if (document.getElementById("jdate").value === "") {
-            document.getElementById("jdate").valueAsDate = new Date();
-            inputDate = document.getElementById("jdate").value;            
-        } else if (inputDateFormat2 <= todaysDate) { 
-            a.alertMessage = "Journey cannot be in past.";
-            a.alertType = "error";
-            setAlert(a);
-        }
-
+        checkJourneyDate();
     }
+    
     //Handle Date Change
     const handleDateChange = (event) => {
+
+        checkJourneyDate();
+
         a.alertMessage = "";
         a.alertType = "default";
         setAlert(a);
-        var d = document.getElementById("jdate").value;
-        var updatedUserContext = userContext;
-        updatedUserContext.jdate = d;
-        setUserContext(updatedUserContext);
+        
     }
 
     //Search Button
     const handleSubmit = (event) => {
-
         event.preventDefault();     
-        if (document.getElementById("radioTrain").checked == true ) { 
-            setMode("t"); 
-        } else if (document.getElementById("radioStation").checked == true ) { 
-            setMode("s"); 
-        } else {
+
+        if  ((document.getElementById("radioTrain").checked == false ) &&  
+                (document.getElementById("radioStation").checked == false )) { 
+         
             document.getElementById("radioTrain").checked = true;
             setMode("t"); 
         }        
-        setQuery(document.getElementById("searchBox").value);
 
         a.alertMessage = "";
         a.alertType = "default";
         setAlert(a);
-
-        var inputDate = document.getElementById("jdate").value;
-        var inputDateFormat2 = new Date(inputDate);
-        var todaysDate = new Date();
-
-        if (document.getElementById("jdate").value === "") {
-            document.getElementById("jdate").valueAsDate = new Date();
-            inputDate = document.getElementById("jdate").value;            
-        } else if (inputDateFormat2 < todaysDate) { 
-            a.alertMessage = "Journey cannot be in past.";
-            a.alertType = "error";
-            setAlert(a);
-        }
+        
+        checkJourneyDate();
     }
 
     //******************* RETURN ********************
@@ -154,7 +155,6 @@ export default function OrderFood(){
                          )}
                     </div>
            }
-              
         </>
     )    
 }

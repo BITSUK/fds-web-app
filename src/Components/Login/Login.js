@@ -16,11 +16,8 @@ export default function Login(props) {
 
     // Obtain alert context and define a local alert object
     const [alertMessage, setAlert] = useContext(AlertContext);
-    const a = {
-        alertType: alertMessage.alertType,
-        alertMessage: alertMessage.alertMessage
-    }     
-
+    const a = { alertType: "default", alertMessage: "" }     
+    
     const navigate = useNavigate();
 
     // Handles Login 
@@ -94,9 +91,11 @@ export default function Login(props) {
 
     //*********************** RETURN ******************************
     return (
-    <div>
+    <div className="no-margin">
         <Alert />
-        <div className="login-form-container">       
+        <div className="login-form-container">   
+            <br/>
+            .    
             <div className="login-form-components">
 				<input type="radio" id="radioCustomer" name="role-type" value="customer" defaultChecked/> &nbsp;
                 <label htmlFor="radioCustomer">Customer</label>	&nbsp;

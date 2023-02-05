@@ -27,8 +27,8 @@ export default function Alert(){
 	// ****************** RETURN ********************
     return (
         <>
-			<div className="col-sm-12 no-margin">
-                <div className="col-sm-11 no-margin"> 
+			<div className="col-sm-12 no-margin no-padding">
+                <div className="col-sm-11 no-margin no-padding"> 
 					<div id="default" className={css}>
 						{screenAlert.alertMessage}
 					</div>

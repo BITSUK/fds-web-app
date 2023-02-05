@@ -9,25 +9,21 @@ import { useContext } from 'react';
 import { UserContext, defaultUser } from '../../Contexts/UserContext.js';
 import { AlertContext } from '../../Contexts/AlertContext.js';
 
-function Header(){
+export default function Header(){
 	const [userContext, setUserContext] = useContext(UserContext);	
 
 	// Obtain alert context and define a local alert object    
 	const [alertMessage, setAlert] = useContext(AlertContext);
-	const a = {
-		alertType: alertMessage.alertType,
-		alertMessage: alertMessage.alertMessage
-	}
-
+	const a = {alertType: "default", alertMessage: ""}
+	
 	// Handles logout
 	const handleLogout = (event) => {
-
+		
 		setUserContext(defaultUser);
-
+		
 		a.alertMessage = ""
 		a.alertType = "default";
 		setAlert(a);
-
 	}
 
 	//***************** RETURN *****************
@@ -64,5 +60,3 @@ function Header(){
 		</div>
     )
 }
-
-export default Header;
