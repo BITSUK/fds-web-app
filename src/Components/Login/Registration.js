@@ -40,12 +40,6 @@ export default function Registration() {
         var fld = "";
         setAlert({ alertMessage: "", alertType: "default" });
 
-        //Check if terms accepted
-        if (document.getElementById("chkTerms").checked == false) {
-            setAlert({ alertMessage: "Please accept terms and conditions", alertType: "error" });
-            document.getElementById("chkTerms").focus();
-            return;
-        } 
         
         //validate User Name
         fld = document.getElementById("regFormUserName").value;
@@ -69,13 +63,21 @@ export default function Registration() {
             document.getElementById("regFormMobile").focus();
             return;     
         }
-         
+
+        if ((fld.length != 10) || (fld.match("[A-Z]") != null) || (fld.match("[%@#$]") != null) || (fld.match("[a-z]") != null)) {
+            setAlert({ alertMessage: "Invalid mobile number", alertType: "error" });
+            document.getElementById("regFormMobile").focus();
+            return;    
+        } 
         
+
         //validate email id
         fld = document.getElementById("regFormEmail").value;
-        if (fld === "")  {            
-            console.log(fld.length);     
-        } 
+        if ((fld > "") && (fld.match("[@]") == null)) {
+            setAlert({ alertMessage: "Invalid email id", alertType: "error" });
+            document.getElementById("regFormEmail").focus();
+            return;
+        }
 
         //Validate user id
         fld = document.getElementById("regFormUserid").value;
@@ -93,12 +95,18 @@ export default function Registration() {
             return;    
         } 
 
-        //Validate user id
+        //Validate password
         var p1 = document.getElementById("regFormPassword1").value;
         var p2 = document.getElementById("regFormPassword2").value;
 
         if ((p1 === "") || (p1.length < 8)) {
             setAlert({ alertMessage: "Password should be minimum 8 characters", alertType: "error" });
+            document.getElementById("regFormPassword1").focus();
+            return;    
+        } 
+
+        if ((p1.match("[0-9]") === null) || (p1.match("[%@#$]") === null) || (p1.match("[A-Z]") === null)|| (p1.match("[a-z]") === null)) {
+            setAlert({ alertMessage: "Password minimum 8 char and must have a Caps, Number and Symbol.", alertType: "error" });
             document.getElementById("regFormPassword1").focus();
             return;    
         } 
@@ -144,6 +152,13 @@ export default function Registration() {
             }
 
         }
+
+        //Check if terms accepted
+        if (document.getElementById("chkTerms").checked == false) {
+            setAlert({ alertMessage: "Please accept terms and conditions", alertType: "error" });
+            document.getElementById("chkTerms").focus();
+            return;
+        } 
 
         setAlert({ alertMessage: "Successfully registered.", alertType: "success" });
         
