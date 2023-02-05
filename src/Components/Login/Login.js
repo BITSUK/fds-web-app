@@ -4,12 +4,15 @@ import {Link, useNavigate } from "react-router-dom";
 import {useContext} from "react";
 import { UserContext } from '../../Contexts/UserContext.js';
 import { AlertContext } from '../../Contexts/AlertContext.js';
+import { CartContext, emptyCart} from '../../Contexts/CartContext.js';
 import Alert from "../Alert/Alert.js";
+
 
 
 export default function Login(props) {
     
     const [userContext, setUserContext] = useContext(UserContext);	
+    const [cart, setCart] = useContext(CartContext);
 
     // Obtain alert context and define a local alert object
     const [alertMessage, setAlert] = useContext(AlertContext);
@@ -55,7 +58,8 @@ export default function Login(props) {
                         isLoggedIn: true,
                         train: "",
                         station: "",
-                        jdate: ""
+                        jdate: "",
+                        restaurant : ""
                     })
                     
                     a.alertMessage = "";
@@ -64,7 +68,7 @@ export default function Login(props) {
                     
                     alert("Login Successful");
 
-                    navigate('/dashboard'); 
+                    (cart.totalPrice === "0") ? navigate('/dashboard') : navigate('/order-conf-page'); 
                 } else {
                     a.alertMessage = "Userid or password not valid, please try again.";
                     a.alertType = "error";

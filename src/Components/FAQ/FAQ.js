@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import './FAQ.css';
 import {Link, useNavigate } from "react-router-dom";
+import Alert from "../Alert/Alert.js";
 
 export default function FAQ() {
     const [questions, setQuestions] = useState([
@@ -10,17 +11,20 @@ export default function FAQ() {
     ]);
   
   return (
-    <div className="faq-container">
-      <Link to="/" className="btn btn-info" role="button">Go Back</Link>
-      <h1 className="faq-title">FAQs </h1>
-      <ul className="faq-list">
-        {questions.map((item, index) => (
-          <li className="faq-item" key={index}>
-            <h3 className="faq-question">{item.question}</h3>
-            <p className="faq-answer">{item.answer}</p>
-          </li>
-        ))}
-      </ul>
-    </div>
+    <>
+      <Alert />
+      <div className="faq-container">
+        {/* <Link to="/" className="btn btn-info" role="button">Go Back</Link> */}
+        <h1 className="faq-title">FAQs </h1>
+        <ul className="faq-list">
+          {questions.map((item, index) => (
+            <li className="faq-item" key={index}>
+              <h3 className="faq-question">{item.question}</h3>
+              <p className="faq-answer">{item.answer}</p>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </>
   );
 }

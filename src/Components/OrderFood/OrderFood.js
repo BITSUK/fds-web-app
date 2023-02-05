@@ -14,6 +14,7 @@ import {UserContext} from '../../Contexts/UserContext.js';
 export default function OrderFood(){
     const [userContext, setUserContext] = useContext(UserContext);
 
+
     const [mode, setMode] = useState("-");
     const [query, setQuery] = useState("");
 
@@ -46,7 +47,7 @@ export default function OrderFood(){
         if (document.getElementById("jdate").value === "") {
             document.getElementById("jdate").valueAsDate = new Date();
             inputDate = document.getElementById("jdate").value;            
-        } else if (inputDateFormat2 < todaysDate) { 
+        } else if (inputDateFormat2 <= todaysDate) { 
             a.alertMessage = "Journey cannot be in past.";
             a.alertType = "error";
             setAlert(a);

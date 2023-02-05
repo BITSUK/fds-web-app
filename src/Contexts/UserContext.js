@@ -7,7 +7,8 @@ export const defaultUser = {
     isLoggedIn: false,
     train: "",
     station: "",
-    jdate: ""
+    jdate: "",
+    restaurant: ""
 }
 
 export const UserContext = createContext(defaultUser);

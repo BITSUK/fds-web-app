@@ -21,3 +21,8 @@
     font-weight: bold;
     padding: 5px;
 }
+
+.no-margin {
+    margin-top: 0;
+    margin-bottom: 0;
+}

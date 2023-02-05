@@ -5,6 +5,7 @@ import Trains from '../../Data/Trains.json';
 import {Link} from "react-router-dom";
 import { useContext, useState } from "react";
 import {UserContext} from '../../Contexts/UserContext.js';
+import Alert from "../Alert/Alert.js";
 
 export default function OrderFoodTrain(){
     const [userContext, setUserContext] = useContext(UserContext);
@@ -20,9 +21,11 @@ export default function OrderFoodTrain(){
     //************ RETURN ************
     return(
         <>
+            <Alert />
             <div> 
 				<br/>                
-				<span id="TrainNo"><b>Train No: {inpParms["train_id"]}</b></span>
+				<span id="TrainNo"><b>Stations for Train No: {inpParms["train_id"]}</b></span>
+                <hr/>
                 {stationList.length === 0 ? (
                     <div>
                         <p className="table-row"><b>"No station found"</b></p>
