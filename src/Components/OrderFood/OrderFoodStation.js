@@ -9,30 +9,33 @@ import Alert from "../Alert/Alert.js";
 
 export default function OrderFoodStation(){
     const [userContext, setUserContext] = useContext(UserContext);
-
     const inpParms = useParams(); 
-    const trainList = Stations.filter(e => (e.station_code.includes(inpParms["station_code"])));
 
-    var s = inpParms["station_code"];
+    //Search in Stations JSON
+    const stationTrainXREF = Stations.filter(e => (e.station_code.includes(inpParms["station_code"])));
+
+    //Update selected station in userContext
     var updatedUserContext = userContext;
-    updatedUserContext.station = s;
+    updatedUserContext.station = inpParms["station_code"]
+    updatedUserContext.stationName = stationTrainXREF[0].station_name;
     setUserContext(updatedUserContext);
 
-    //************ RETURN ************
+    //************ RETURN RESPONSE ************
     return(
         <>
             <Alert />
             <div> 
-				<br/>                
-				<span id="stationCode"><b>Trains for Station Code: {inpParms["station_code"]}</b></span>
+				<div>                
+				    <b>Station : {inpParms["station_code"]} - {stationTrainXREF[0].station_name}</b>
+                </div>
                 <hr/>
-                {trainList.length === 0 ? (
+                {stationTrainXREF.length === 0 ? (
                     <div>
                         <p className="table-row"><b>"No train found"</b></p>
                     </div>
-                ) : ( trainList.map(record1 => ( record1.trains.map( record2 => (
+                ) : ( stationTrainXREF.map(record1 => ( record1.trains.map( record2 => (
                         <div className="table-row">                                    
-                            <Link to={`/order-food/rest/${record1.station_code}`} key={record1.station_code}>
+                            <Link to={`/order-food/rest/${record1.station_code}/${record2.train_no}`} key={record1.station_code}>
                                - {record2.train_no}:{record2.train_name} 
                             </Link>
                         </div>

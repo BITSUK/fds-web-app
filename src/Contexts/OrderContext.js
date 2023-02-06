@@ -6,8 +6,10 @@ export const sampleOrder = {
     customerName : "HAPPY SINGH",
     mobileNo     : "9988776655",
     station      : "NDLS",
+    stationName  : "Delhi",
     restaurant   : "Shree Sai Bhojanle",
     train        : "12910",
+    trainName    : "Garibrath",
     seatDetails  : "B1/20",
     deliveryDate : "15/02/2023",
     orderItems: [

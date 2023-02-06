@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import {useContext} from "react";
 import { Link, useNavigate} from "react-router-dom";
-import { CartContext, emptyCart} from '../../Contexts/CartContext.js';
+import { CartContext} from '../../Contexts/CartContext.js';
 import {UserContext} from '../../Contexts/UserContext.js';
 import './DisplayCart.css';
 
@@ -11,12 +11,21 @@ export default function DisplayCart(props) {
     const navigate = useNavigate();
     const [userContext, setUserContext] = useContext(UserContext);
     
+    
     const [cart, setCart] = useContext(CartContext);
     const cartItems = cart.items;  //Extract cart items in a separate variable
 
     // Sets the cart to empty
     const emptyTheCart = (event) => {
-        setCart(emptyCart);     
+        // setCart(emptyCart);     
+        setCart({    
+            totalPrice  : "0",
+            discount    : "0",
+            taxes       : "0",
+            netprice    : "0",
+            status      : "initial",
+            items       : []       
+        })
     }
 
     // Handles item deletes from the cart
@@ -43,19 +52,12 @@ export default function DisplayCart(props) {
     return (
         <div className="container-fluid">
             <div className="row">
-                <div className="col-sm-12">
-                    <br/>
-                    <div className="col-sm-8">
-                        <b>Your Cart:</b>
-                    </div>
-                    <div className="col-sm-4">
-                        <Link to="#" role="button" style={{padding: 0}} onClick={emptyTheCart}>Empty Cart</Link>
-                    </div>
-                </div>
+                <br/>
+                <div><b className="col-sm-8">Your Cart:</b></div>
+                <Link to="#" className="col-sm-4" role="button" style={{padding: 0, fontSize: 12}} onClick={emptyTheCart}>Empty Cart</Link>
                 <br/>.
                 <hr className="horizontal-line"/>             
                 <div className="col-sm-12">
-                    <br/>
                     {cartItems.length === 0 ? (
                         <div className="row">
                             <div className="col-sm-12">
@@ -65,22 +67,22 @@ export default function DisplayCart(props) {
                             </div>
                         </div>
                     ) : (cartItems.map(record => (
-                        <div className="col-sm-12"    style={{ padding: 0}}>
-                            <div className="col-sm-7" style={{ padding: 0 }}>                                    
+                        <div className="col-sm-12"  key={record.item_id}  style={{ padding: 0, fontSize: 11 }}>
+                            <div className="col-sm-7" key="item_name" style={{ fontSize: 11, padding: 0 }}>                                    
                                 {record.item_name}
                             </div>
-                            <div className="col-sm-2" style={{ padding: 0 }}>                                    
+                            <div className="col-sm-2"  key="item_quantity" style={{ fontSize: 11, padding: 0 }}>                                    
                                 {record.item_quantity} 
                             </div>
-                            <div className="col-sm-2" style={{ padding: 0 }}>                                    
+                            <div className="col-sm-2"  key="item_price" style={{ fontSize: 11, padding: 0 }}>                                    
                                 {record.item_price}
                             </div>
-                            <div className="col-sm-1" style={{ padding: 0 }}>
+                            <div className="col-sm-1" key="d" style={{ fontSize: 11, padding: 0 }}>
                                 <div >                            
                                     {record.item_name === "No item in cart" ? (
-                                        <Link to="#" style={{ padding: 0 }} onClick={handleDeleteItem}></Link>
+                                        <Link to="#" key="d1" style={{ fontSize: 11, padding: 0 }} onClick={handleDeleteItem}></Link>
                                     ): (
-                                        <Link to="#" style={{ padding: 0 }} onClick={handleDeleteItem}>Del</Link>
+                                        <Link to="#" key="d2" style={{ fontSize: 11, padding: 0 }} onClick={handleDeleteItem}>Del</Link>
                                     )}
                                 </div>
                             </div>
@@ -89,19 +91,19 @@ export default function DisplayCart(props) {
                     )} 
                     <span className="white-color-text">.</span>  
                     <hr className="horizontal-line"/>
-                    <div className="col-sm-12" style={{padding: 0 }}>
+                    <div className="col-sm-12" style={{ fontSize: 11, padding: 0 }}>
                         <div className="col-sm-9"> Total Amount:</div>
                         <div className="col-sm-3"> {cart.totalPrice}</div>
                     </div>   
-                    <div className="col-sm-12" style={{padding: 0 }}>
+                    <div className="col-sm-12" style={{ fontSize: 11, padding: 0 }}>
                         <div className="col-sm-9"> Discount:</div>
                         <div className="col-sm-3"> {cart.discount}</div>
                     </div>   
-                    <div className="col-sm-12" style={{padding: 0 }}>
+                    <div className="col-sm-12" style={{ fontSize: 11, padding: 0 }}>
                         <div className="col-sm-9"> Taxes:</div>
                         <div className="col-sm-3"> {cart.taxes}</div>
                     </div>   
-                    <div className="col-sm-12" style={{padding: 0 }}>
+                    <div className="col-sm-12" style={{ fontSize: 11, padding: 0 }}>
                         <b>
                             <div className="col-sm-9"> Net Price:</div>
                             <div className="col-sm-3"> {cart.netprice}</div>
@@ -112,9 +114,9 @@ export default function DisplayCart(props) {
                 <hr className="horizontal-line"/>
                 <button type="submit" className="btn btn-primary" onClick={handleCheckOut}>Checkout</button>    
                 <div>
-                    .<dr/>
-                    <dr/>
-                    <dr/>
+                    <br/>
+                    <br/>
+                    <br/>
                 </div>
             </div>
         </div>

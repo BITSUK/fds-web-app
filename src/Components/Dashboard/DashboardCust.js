@@ -6,15 +6,6 @@ import './Dashboard.css';
 
 export default function DashboardCust(){
 
-    // // Obtain alert context and define a local alert object
-    // const [alertMessage, setAlert] = useContext(AlertContext);
-    // const a = {
-    //     alertType: alertMessage.alertType,
-    //     alertMessage: alertMessage.alertMessage
-    // }   
-
-    // const [userContext, setUserContext] = useContext(UserContext);
-
     return(
         <>
             <Alert />

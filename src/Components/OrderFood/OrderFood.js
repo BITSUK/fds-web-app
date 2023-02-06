@@ -17,6 +17,7 @@ export default function OrderFood(){
     const [mode, setMode] = useState("-");
     const [query, setQuery] = useState("");
 
+    //Filter the stations and train JSON, based on entered search text
     const stationsList = Stations.filter(e => 
             (e.station_code.toLowerCase().includes(query.toLowerCase())) ||
             (e.station_name.toLowerCase().includes(query.toLowerCase())) );
@@ -26,9 +27,11 @@ export default function OrderFood(){
             (e.train_name.toLowerCase().includes(query.toLowerCase()))  );
 
     
+    //Reset screen alert
     const [alertMessage, setAlert] = useContext(AlertContext);
     const a = { alertType: "default", alertMessage: "" }
 
+    //Function to validate journey date
     const checkJourneyDate = () => {
 
         var inptJDate = document.getElementById("jdate").value;
@@ -80,7 +83,7 @@ export default function OrderFood(){
         
     }
 
-    //Search Button
+    //Handle Search Button Click
     const handleSubmit = (event) => {
         event.preventDefault();     
 
@@ -98,7 +101,7 @@ export default function OrderFood(){
         checkJourneyDate();
     }
 
-    //******************* RETURN ********************
+    //************ RETURN RESPONSE ************
     return(
         <>
             <Alert />

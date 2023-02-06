@@ -4,13 +4,13 @@
         "train_no"   : "12926",
         "train_name" : "Paschim SF Express",
         "train_stations" : [ 
-            {  "station_code" : "NDLS", "station": "Delhi"    },
+            {  "station_code" : "NDLS", "station": "Delhi"    ,"arrival_day:" : "Day 1", "arrival_time:" : "16:20", "departure_day:" : "Day 1", "departure_time:" : "16:35", "halt": "15m"},
             {  "station_code" : "MTJ" , "station": "Mathura"  },
-            {  "station_code" : "KOTA", "station": "Kota"     },
+            {  "station_code" : "KOTA", "station": "Kota"     ,"arrival_day:" : "Day 1", "arrival_time:" : "23:30", "departure_day:" : "Day 1", "departure_time:" : "23:40", "halt": "10m"},
             {  "station_code" : "RTM" , "station": "Ratlam"   },
             {  "station_code" : "BRC" , "station": "Vadodara" },
-            {  "station_code" : "ST"  , "station": "Surat"    },
-            {  "station_code" : "MMCT", "station": "Mumbai"   }  
+            {  "station_code" : "ST"  , "station": "Surat"    ,"arrival_day:" : "Day 2", "arrival_time:" : "10:24", "departure_day:" : "Day 2", "departure_time:" : "10:29", "halt": "5m"},
+            {  "station_code" : "MMCT", "station": "Mumbai"   ,"arrival_day:" : "Day 2", "arrival_time:" : "14:55", "departure_day:" : "",      "departure_time:" : "",      "halt": ""}  
         ]
     },
     { 

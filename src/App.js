@@ -19,6 +19,7 @@ import OrderFoodStation from './Components/OrderFood/OrderFoodStation.js';
 import OrderFoodRest from './Components/OrderFood/OrderFoodRest.js';
 import OrderFoodMenu from './Components/OrderFood/OrderFoodMenu.js';
 import DisplayCart from './Components/Cart/DisplayCart.js';
+import DisplaySideCart from './Components/Cart/DisplaySideCart.js';
 import OrderConfirmation from './Components/OrderFood/OrderConfirmation.js';
 import Payment from './Components/Payment/Payment';
 import {BrowserRouter as Router, Routes, Route} from "react-router-dom";
@@ -64,9 +65,10 @@ export default function App() {
                     <Route exact path="/forgot-password" element={<ResetPassword />}/>
 					
 					          <Route exact path="/order-food" element={<OrderFood />}/>
+                    <Route exact path="/order-food/cart" element={<DisplayCart />}/>
                     <Route exact path="/order-food/train/:train_no" element={<OrderFoodTrain/>}/>
                     <Route exact path="/order-food/station/:station_code" element={<OrderFoodStation/>}/>
-                    <Route exact path="/order-food/rest/:station_code" element={<OrderFoodRest/>}/> 
+                    <Route exact path="/order-food/rest/:station_code/:train_no" element={<OrderFoodRest/>}/> 
                     <Route exact path="/order-food/restaurant/:rest_id" element={<OrderFoodMenu/>}/>
                     <Route exact path="/order-food/restaurant/:rest_id/:menu_id" element={<OrderFoodMenu/>}/>
                     <Route exact path="/order-conf-page" element={<OrderConfirmation />} />
@@ -96,11 +98,12 @@ export default function App() {
 					          <Route exact path="/forgot-password" element={<Blank message="Reset password using OTP authentication. Password should be atleast 8 character."/>}/>
                     
 					          <Route exact path="/order-food" element={<Blank message=""/>}/>
+                    <Route exact path="/order-food/cart" element={<Blank message=""/>}/>
                     <Route exact path="/order-food/train/:train_no" element={<Blank message=""/>}/>
                     <Route exact path="/order-food/station/:station_code" element={<Blank message=""/>}/>
-                    <Route exact path="/order-food/rest/:station_code" element={<Blank message=""/>}/>
-                    <Route exact path="/order-food/restaurant/:rest_id" element={<DisplayCart />}/>
-                    <Route exact path="/order-food/restaurant/:rest_id/:menu_id" element={<DisplayCart />}/>
+                    <Route exact path="/order-food/rest/:station_code/:train_no" element={<Blank message=""/>}/>
+                    <Route exact path="/order-food/restaurant/:rest_id" element={<DisplaySideCart />}/>
+                    <Route exact path="/order-food/restaurant/:rest_id/:menu_id" element={<DisplaySideCart />}/>
                     <Route exact path="/order-conf-page" element={<Blank message="Check details and make payment."/>} />
                     <Route exact path="/payment" element={<Blank message="Choose payment option and provide payment details."/>} />
 

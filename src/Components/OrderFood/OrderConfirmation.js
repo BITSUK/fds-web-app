@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import { OrderContext } from '../../Contexts/OrderContext.js';
 import { CartContext, emptyCart} from '../../Contexts/CartContext.js';
 import {UserContext} from '../../Contexts/UserContext.js';
-import './OrderFood.css';
+import './OrderConfirmation.css';
 
 export default function OrderConfirmation(props) {
     const [order, setOrder] = useContext(OrderContext);
@@ -25,6 +25,9 @@ export default function OrderConfirmation(props) {
     // updatedOrder.orderDate = new Date();
     updatedOrder.customerName = userContext.name;
     updatedOrder.station = userContext.station;
+    updatedOrder.stationName = userContext.stationName;
+    updatedOrder.train = userContext.train;
+    updatedOrder.trainName = userContext.trainName;
     updatedOrder.deliveryDate = userContext.jdate;
     setOrder(updatedOrder);
 
@@ -50,13 +53,18 @@ export default function OrderConfirmation(props) {
                 ) : (
                     <div className="col-sm-12">
                         <b>Mobile No:</b>
-                        <input type="text" id="SeatDtls" value= {order.mobileNo} /> 
+                        <input type="text" id="mobileNo" value= {order.mobileNo} /> 
                     </div>
                 )
                 }
                 {/* <div className="col-sm-12"><b>Mobile No:</b> {order.mobileNo} </div> */}
-                <div className="col-sm-12"><b>Station:</b> {order.station} </div>
-                <div className="col-sm-12"><b>Delivery Date:</b> {order.deliveryDate} </div>
+                <div className="col-sm-12"><b>Station:</b> {order.stationName} </div>
+                {/* <div className="col-sm-12"><b>Delivery Date:</b> {order.deliveryDate} </div> */}
+                <div className="col-sm-12">
+                    <b>Delivery Date:</b>
+                    <input type="text" id="deliveryDate" value= {order.deliveryDate} placeholder="25-02-2023"/> 
+                    {/* <input type="date" id="deliveryDate" name="deliveryDate" value= {order.deliveryDate}></input> */}
+                </div>
                 <div className="col-sm-12"><b>Train:</b> {order.train} {order.trainName} </div>
                 <div className="col-sm-12">
                     <b>Coach/Seat:</b>

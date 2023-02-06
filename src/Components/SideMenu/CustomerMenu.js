@@ -7,6 +7,7 @@ export default function CustomerMenu(props){
         <>
             <Link to="/dashboard">Dashboard</Link>
 			<Link to="/order-food">Order Food</Link>
+            <Link to="/order-food/cart">Cart</Link>
             <Link to="/order-history/cust">Previous Orders</Link>
             <Link to="/profile">User Profile</Link>
 		</>                

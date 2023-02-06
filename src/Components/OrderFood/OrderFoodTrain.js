@@ -9,30 +9,33 @@ import Alert from "../Alert/Alert.js";
 
 export default function OrderFoodTrain(){
     const [userContext, setUserContext] = useContext(UserContext);
-
     const inpParms = useParams(); 
-    const stationList = Trains.filter(e => (e.train_no.includes(inpParms["train_no"])));
 
-    var t = inpParms["train_no"];
+    //Search in Trains JSON
+    const trainStationXREF = Trains.filter(e => (e.train_no.includes(inpParms["train_no"])));
+
+    //Update selected train in userContext
     var updatedUserContext = userContext;
-    updatedUserContext.train = t;
+    updatedUserContext.train = inpParms["train_no"];
+    updatedUserContext.trainName = trainStationXREF[0].train_name;
     setUserContext(updatedUserContext);
 
-    //************ RETURN ************
+    //************ RETURN RESPONSE ************
     return(
         <>
             <Alert />
             <div> 
-				<br/>                
-				<span id="trainNo"><b>Stations for Train No: {inpParms["train_no"]}</b></span>
+				<div>
+				    <b>Train : {inpParms["train_no"]} - {trainStationXREF[0].train_name}</b>
+                </div>
                 <hr/>
-                {stationList.length === 0 ? (
+                {trainStationXREF.length === 0 ? (
                     <div>
                         <p className="table-row"><b>"No station found"</b></p>
                     </div>
-                ) : ( stationList.map(record1 => ( record1.train_stations.map( record2 => (
+                ) : ( trainStationXREF.map(record1 => ( record1.train_stations.map( record2 => (
                         <div className="table-row">                                    
-                            <Link to={`/order-food/rest/${record2.station_code}`} key={record2.station}>
+                            <Link to={`/order-food/rest/${record2.station_code}/${record1.train_no}`} key={record2.station}>
                                - {record2.station} ({record2.station_code})
                             </Link>
                         </div>
