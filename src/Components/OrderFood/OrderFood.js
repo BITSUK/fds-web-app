@@ -135,7 +135,7 @@ export default function OrderFood(){
                         ) : (   trainsList.map(record => (
                                 <div className="table-row">                                     
                                     <Link to={`/order-food/train/${record.train_no}` } key={record.id}>
-                                       - {record.train_no} : {record.train_name}
+                                       {record.train_no} : {record.train_name}
                                     </Link>
                                 </div>
                             ))
@@ -151,7 +151,7 @@ export default function OrderFood(){
                         ) : (   stationsList.map(record => (
                                 <div className="table-row">                                    
                                     <Link to={`/order-food/station/${record.station_code}`} key={record.id}>
-                                       - {record.station_name} ({record.station_code})
+                                       {record.station_name} ({record.station_code})
                                     </Link>
                                 </div>
                             ))
