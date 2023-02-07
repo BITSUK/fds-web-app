@@ -51,6 +51,9 @@ export default function Login(props) {
                     setUserContext({
                         uid: data.userId,
                         name: data.userName,
+                        mobile: "9965532235",
+                        email: "xyz@gmail.com",
+                        address: "Delhi",
                         role: inputRole,
                         isLoggedIn: true,
                         train: "",

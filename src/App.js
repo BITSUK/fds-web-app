@@ -19,6 +19,7 @@ import OrderFoodStation from './Components/OrderFood/OrderFoodStation.js';
 import OrderFoodRest from './Components/OrderFood/OrderFoodRest.js';
 import OrderFoodMenu from './Components/OrderFood/OrderFoodMenu.js';
 import RestDetails from './Components/RestDetails/RestDetails.js';
+import Profile from './Components/Profile/Profile.js';
 import DisplayCart from './Components/Cart/DisplayCart.js';
 import DisplaySideCart from './Components/Cart/DisplaySideCart.js';
 import OrderConfirmation from './Components/OrderFood/OrderConfirmation.js';
@@ -80,7 +81,7 @@ export default function App() {
 					                    
 					          <Route exact path="/rest-menu" element={<UnderConstruction />}/>
                     <Route exact path="/rest-settings" element={<RestDetails />}/>
-					          <Route exact path="/profile" element={<UnderConstruction />}/>                    
+					          <Route exact path="/profile" element={<Profile />}/>                    
                     
 					          <Route exact path="/faq" element={<FAQ />}/>     
                     <Route exact path="/journey" element={<UnderConstruction />}/>  

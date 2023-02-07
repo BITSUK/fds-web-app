@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState} from "react";
 import {useContext} from "react";
 import {UserContext} from '../../Contexts/UserContext.js';
 import Active_Orders from '../../Data/Orders.json';
@@ -11,14 +11,21 @@ export default function RestOrderHistory(){
 
     const [userContext, setUserContext] = useContext(UserContext);
     const [alertMessage, setAlert] = useContext(AlertContext);
+    const [query, setQuery] = useState("");
 
-    const users_active_orders = Active_Orders.filter(e => (e.user_id == userContext.uid));
+    const users_active_orders_temp = Active_Orders.filter(e => ((e.user_id == userContext.uid)&&(e.order_status != "Pending")));
+    const users_active_orders = users_active_orders_temp.filter(e => (e.order_no.toLowerCase().includes(query.toLowerCase())))
 
     return(
         <>  
         <Alert/>
         <h2>Previous Orders: </h2>
             <div> 
+                <div>
+                    <label> Search Order No:</label>
+                    <input type="text" className="form-control" id="Search" placeholder="Search Menu..." onChange={e => setQuery(e.target.value)} />
+                </div>  
+
                 {users_active_orders.length === 0 ? (
                     <div>
                         <p className="order">No active orders.</p>
