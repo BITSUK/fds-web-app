@@ -56,13 +56,13 @@ export default function RestDetails() {
             <br />
             <div className="reg-form-components">
                 <label htmlFor="regFormName" className="form-label">Restaurant Name</label>
-                <input type="text" className="form-control" id="regFormRestName" placeholder="Name"/>
+                <input type="text" className="form-control" id="regFormRestName" placeholder="Name" value="Shree Sai Bhojanle"/>
             </div>
             <br />
             
             <div className="reg-form-components">
                 <label htmlFor="regFormName" className="form-label">Restaurant Address</label>
-                <input type="text" className="form-control" id="regFormRestAddress" placeholder="Name"/>
+                <input type="text" className="form-control" id="regFormRestAddress" placeholder="Name" value="Delhi"/>
             </div>
             <br />
 

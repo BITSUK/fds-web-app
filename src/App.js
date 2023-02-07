@@ -19,6 +19,8 @@ import OrderFoodStation from './Components/OrderFood/OrderFoodStation.js';
 import OrderFoodRest from './Components/OrderFood/OrderFoodRest.js';
 import OrderFoodMenu from './Components/OrderFood/OrderFoodMenu.js';
 import RestDetails from './Components/RestDetails/RestDetails.js';
+import RestMenu from './Components/RestMenu/RestMenu.js';
+import AddMenuItem from './Components/RestMenu/AddMenuItem.js';
 import Profile from './Components/Profile/Profile.js';
 import DisplayCart from './Components/Cart/DisplayCart.js';
 import DisplaySideCart from './Components/Cart/DisplaySideCart.js';
@@ -79,7 +81,7 @@ export default function App() {
 					          <Route exact path="/order-history/cust" element={<OrderHistoryCust />}/>
                     <Route exact path="/order-history/rest" element={<AllOrders />}/>
 					                    
-					          <Route exact path="/rest-menu" element={<UnderConstruction />}/>
+					          <Route exact path="/rest-menu" element={<RestMenu />}/>
                     <Route exact path="/rest-settings" element={<RestDetails />}/>
 					          <Route exact path="/profile" element={<Profile />}/>                    
                     
@@ -112,7 +114,7 @@ export default function App() {
                     <Route exact path="/order-history/cust" element={<Blank message=""/>}/>
                     <Route exact path="/order-history/rest" element={<Blank message="All orders till date."/>}/>
 					
-                    <Route exact path="/rest-menu" element={<Blank message=""/>}/>
+                    <Route exact path="/rest-menu" element={<AddMenuItem/>}/>
                     <Route exact path="/rest-settings" element={<Blank message=""/>}/>
                     <Route exact path="/profile" element={<Blank message=""/>}/>
 					

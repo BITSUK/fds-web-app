@@ -6,6 +6,7 @@
         "rest_location": "Delhi",
         "rating": 4,
         "image_link": "https://rb.gy/doe9fe/images/1.png",
+        "user_id": "UID002",
         "menu_item": [
             {
                 "menu_id": 1,
@@ -96,6 +97,7 @@
         "rest_location": "Delhi",
         "rating": 3,
         "image_link": "./images/1.png",
+        "user_id": "UID000",
         "menu_item": [
             {
                 "menu_id": 1,
@@ -122,6 +124,7 @@
         "rest_location": "Delhi",
         "rating": 2,
         "image_link": "./images/1.png",
+        "user_id": "UID000",
         "menu_item": [
             {
                 "menu_id": 1,
@@ -148,6 +151,7 @@
         "rest_location": "Kota",
         "rating": 3,
         "image_link": "./images/1.png",
+        "user_id": "UID000",
         "menu_item": [
             {
                 "menu_id": 1,
@@ -174,6 +178,7 @@
         "rest_location": "Ratlam",
         "rating": 4,
         "image_link": "./images/1.png",
+        "user_id": "UID000",
         "menu_item": [
             {
                 "menu_id": 1,
@@ -200,6 +205,7 @@
         "rest_location": "Ratlam",
         "rating": 4,
         "image_link": "https://rb.gy/doe9fe/images/1.png",
+        "user_id": "UID000",
         "menu_item": [
             {
                 "menu_id": 1,
@@ -282,6 +288,7 @@
         "rest_location": "Mumbai",
         "rating": 3,
         "image_link": "./images/1.png",
+        "user_id": "UID000",
         "menu_item": [
             {
                 "menu_id": 1,
