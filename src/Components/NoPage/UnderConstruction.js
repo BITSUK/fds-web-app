@@ -18,7 +18,7 @@ export default function UnderConstruction(props){
             <p>
             This page is under construction.
             </p>
-            <button className="btn btn-info" onClick={handleGoBack}>Go Back</button>
+            {/* <button className="btn btn-info" onClick={handleGoBack}>Go Back</button> */}
             <br />
             <br />
             <br />

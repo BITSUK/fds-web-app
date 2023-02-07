@@ -16,9 +16,10 @@ export default function Order(props){
                         <p>Coach/Seat No: {props.coach_no}/{props.seat_no}</p>
                     </div>
                     <div className="col-sm-3">
-                        <p>Station: {props.delivery_station}</p>
                         <p><b className={props.order_status}>Status: {props.order_status}</b></p>
+                        <p>Station: {props.delivery_station}</p>
                     </div>
+                    
                 </div>                               
             </div>
         </>
