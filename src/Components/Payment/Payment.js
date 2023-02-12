@@ -53,7 +53,7 @@ export default function Payment() {
             setAlert(a);
             //Pending: checks to validate only numbers are keys
         } else {
-            a.alertMessage = "Order Placed Successfully.";
+            a.alertMessage = "Order Placed Successfully. Order No: NT03456";
             a.alertType = "success";
             setAlert(a);
             setPaymentStatus("paid");    
