@@ -6,17 +6,21 @@ import './Order.css';
 export default function Order(props){
     const [userContext, setUserContext] = useContext(UserContext);	
 
+
     const handleConfirmOrder = (event) => {
 
         event.preventDefault(); 
-        alert("Order CONFIRMED (placeholder message)");
+        
+        alert("(placeholder message) Order " + event.target.name + " CONFIRMED" );
+        // alert("Order " + event.order_no + " CONFIRMED (placeholder message)");
 
         return;
     }
     const handleRejectOrder = (event) => {
 
         event.preventDefault(); 
-        alert("Order REJECTED (placeholder message)");
+        alert("(placeholder message) Order " + event.target.name + " REJECTED" );
+        // alert("Order " + event.order_no + " REJECTED (placeholder message)");
 
         return;
     }
@@ -42,8 +46,8 @@ export default function Order(props){
                     <div>
                         {(userContext.role === "restaurant") && (props.order_status === "Pending") &&
                             <div className="col-sm-12">
-                                <button type="submit" className="btn btn-primary" onClick={handleConfirmOrder}>Confirm</button>
-                                <button type="submit" className="btn btn-danger" onClick={handleRejectOrder}>Reject</button>
+                                <button type="submit" name={props.order_no} className="btn btn-primary" onClick={handleConfirmOrder}>Confirm</button>
+                                <button type="submit" name={props.order_no} className="btn btn-danger" onClick={handleRejectOrder}>Reject</button>
                             </div>
                         }
                     </div>                    

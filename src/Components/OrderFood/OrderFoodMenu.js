@@ -48,48 +48,71 @@ export default function OrderFoodMenu() {
         }
     }
     
-    //then extract menu_id, menu_name and menu_price and add to the cart
-    // function addToCart(item_id, name, price) {
-    //     var c_itms = cart.items;
-    //     c_itms[c_itms.length] = {
-    //         item_id : item_id,
-    //         item_name : name,
-    //         item_price : price,
-    //         item_quantity : "1"
-    //     }
-    //     var updatedCart = cart;
-    //     updatedCart.items = c_itms;
-
-    //     setCart(updatedCart);        
-    //     return;
-    // }
-
-    //If URL is path="/order-food/rest/:rest_id/:menu_id?menuName=""&menuPrice=""
-    if ((inpSearchParms.get("action") != null) && (inpSearchParms.get("action") === 'add')){
-        // addToCart(inpParms["menu_id"],inpSearchParms.get("menuName"),inpSearchParms.get("menuPrice"));
-        
+    //add item to cart using function
+    const addToCart = (id, name, price, event) => {
+        // alert ("clicked " + id + " " + name + " " + price);
         var tempCartItem = cart.items;
+
         tempCartItem[tempCartItem.length] = {
-            item_id : inpParms["menu_id"],
-            item_name : inpSearchParms.get("menuName"),
-            item_price : inpSearchParms.get("menuPrice"),
-            item_quantity : "1"
+                item_id : id.toString(),
+                item_name : name,
+                item_price : price.toString(),
+                item_quantity : "1"
         }
-
+        
         var updatedCart = cart;
-        updatedCart.items = tempCartItem;
-
+        updatedCart.items       = tempCartItem;
+        // updatedCart.totalPrice  = Number(updatedCart.totalPrice) + Number(price);
+        // updatedCart.netprice    = Number(updatedCart.netprice) + Number(price);
+        // updatedCart.taxes       = Number(updatedCart.taxes) + Number(price)*0.10;
+        updatedCart.totalPrice  = Number(updatedCart.totalPrice) + Number(price);
+        updatedCart.taxes       = Number(updatedCart.totalPrice)*0.10;
+        updatedCart.netprice    = updatedCart.totalPrice + updatedCart.taxes;
         setCart(updatedCart);
-        var url = "/order-food/restaurant/" + userContext.restaurant;
-        navigate(url);
 
-        // alert("Item added successfully");
     }
-    // const addToCartTemp = () => {
-    //     // alert("Add to cart failed.")
-    //     return;
-    // }
 
+    // //add to cart using url 
+    // if ((inpSearchParms.get("action") != null) && (inpSearchParms.get("action") === 'add')){
+    //     // addToCart(inpParms["menu_id"],inpSearchParms.get("menuName"),inpSearchParms.get("menuPrice"));
+        
+    //     var tempCartItem = cart.items;
+    //     var tempPrice = 0;
+
+    //     // code is complex as we are facing an issue
+    //     if (tempCartItem.length > 0) {
+    //         if (tempCartItem[tempCartItem.length - 1].item_id != inpParms["menu_id"] ) {
+    //             tempCartItem[tempCartItem.length] = {
+    //                 item_id : inpParms["menu_id"],
+    //                 item_name : inpSearchParms.get("menuName"),
+    //                 item_price : inpSearchParms.get("menuPrice"),
+    //                 item_quantity : "1"
+    //             }
+    //             tempPrice = inpSearchParms.get("menuPrice");
+
+    //         }            
+    //     } else {
+    //         tempCartItem[tempCartItem.length] = {
+    //             item_id : inpParms["menu_id"],
+    //             item_name : inpSearchParms.get("menuName"),
+    //             item_price : inpSearchParms.get("menuPrice"),
+    //             item_quantity : "1"
+    //         }
+    //         tempPrice = inpSearchParms.get("menuPrice");
+    //     }
+
+    //     var updatedCart = cart;
+    //     updatedCart.items = tempCartItem;
+    //     updatedCart.totalPrice = Number(updatedCart.totalPrice) + Number(tempPrice);
+    //     updatedCart.netprice = Number(updatedCart.netprice) + Number(tempPrice);
+    //     updatedCart.taxes = Number(updatedCart.taxes) + Number(tempPrice)*0.10;
+
+    //     setCart(updatedCart);
+    //     var url = "/order-food/restaurant/" + userContext.restaurant;
+    //     navigate(url);
+
+    //     // alert("Item added successfully");
+    // }
 
     //**************** RETURN RESPONSE ***************
     return (
@@ -136,9 +159,9 @@ export default function OrderFoodMenu() {
                                 </div>
                                 <div className="col-sm-2">
                                     <div >                            
-                                    <Link to={`/order-food/restaurant/${userContext.restaurant}/${record.menu_id}?action=add&menuName=${record.menu_name}&menuPrice=${record.menu_price}`} key={record.menu_id}>Add</Link>
-                                    {/* <Link onClick={addToCartTemp} to={`/order-food/restaurant/${userContext.restaurant}/${record.menu_id}?action=add&menuName=${record.menu_name}&menuPrice=${record.menu_price}`} key={record.menu_id}>Add</Link> */}
-                                        {/* <Link to="#" onClick={addToCart(record.menu_id,record.menu_name,record.menu_price )}>Add</Link> */}
+                                    {/* <Link to={`/order-food/restaurant/${userContext.restaurant}/${record.menu_id}?action=add&menuName=${record.menu_name}&menuPrice=${record.menu_price}`} key={record.menu_id}>Add</Link> */}
+                                    {/* <Link to="#" key={record.menu_id} id={record.menu_id} name={record.menu_name}  price={record.menu_price} onClick={addToCart}>Add</Link> */}
+                                    <Link to="#" key={record.menu_id} onClick={(e) => addToCart(record.menu_id,record.menu_name,record.menu_price,e)}>Add</Link>
                                     </div>
                                 </div>
                             </div>

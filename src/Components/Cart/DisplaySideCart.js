@@ -9,8 +9,6 @@ import './DisplayCart.css';
 export default function DisplayCart(props) {
     
     const navigate = useNavigate();
-    const [userContext, setUserContext] = useContext(UserContext);
-    
     
     const [cart, setCart] = useContext(CartContext);
     const cartItems = cart.items;  //Extract cart items in a separate variable
@@ -29,21 +27,46 @@ export default function DisplayCart(props) {
     }
 
     // Handles item deletes from the cart
-    const handleDeleteItem = (event) => {
-            return; //This code is not written
+    const handleDeleteItem = (id,price,event) => {
+        // event.preventDefault();
+
+        var updatedCart = cart;
+        var itemPosition = -1;
+
+        for (let i = 0; i < updatedCart.items.length; i++) {
+            if (updatedCart.items[i].item_id == id) {
+                itemPosition = i;
+                break;
+            }
+        }
+        // alert("item " + event.target.name + " is at " + itemPosition + " position");
+
+        if (itemPosition > -1) {
+            if (itemPosition === 0 ) {
+                //first item is not allowed to be delete, to overcome an known issue
+            }else {
+                delete updatedCart.items[itemPosition];
+
+                updatedCart.totalPrice  = Number(updatedCart.totalPrice) - Number(price);
+                updatedCart.taxes       = Number(updatedCart.totalPrice)*0.10;
+                updatedCart.netprice    = updatedCart.totalPrice + updatedCart.taxes;
+                setCart(updatedCart);
+            }
+        }
+
+        
+
+        return; //This code is not written
     }
 
     //Handles checkout
-    const handleCheckOut = (event) => {
-        event.preventDefault();  
+    const handleCheckOut = ( event) => {
+        event.preventDefault(); 
+         
         if (cartItems.length === 0)  {
             alert("Cannot checkout as your cart is empty.");
         } else {
-            // if (userContext.isLoggedIn) {
                 navigate("/order-conf-page");
-            // } else {
-            //     alert("Please login.");
-            // }
         }
 
     }
@@ -80,9 +103,9 @@ export default function DisplayCart(props) {
                             <div className="col-sm-1" key="d" style={{ fontSize: 11, padding: 0 }}>
                                 <div >                            
                                     {record.item_name === "No item in cart" ? (
-                                        <Link to="#" key="d1" style={{ fontSize: 11, padding: 0 }} onClick={handleDeleteItem}></Link>
+                                        <Link to="#" key="d1" name={record.item_id} style={{ fontSize: 11, padding: 0 }} onClick={(e) => {handleDeleteItem(record.item_id,record.item_price,e)}}></Link>
                                     ): (
-                                        <Link to="#" key="d2" style={{ fontSize: 11, padding: 0 }} onClick={handleDeleteItem}>Del</Link>
+                                        <Link to="#" key="d2" name={record.item_id} style={{ fontSize: 11, padding: 0 }} onClick={(e) => {handleDeleteItem(record.item_id,record.item_price,e)}}>Del</Link>
                                     )}
                                 </div>
                             </div>
@@ -100,7 +123,7 @@ export default function DisplayCart(props) {
                         <div className="col-sm-3"> {cart.discount}</div>
                     </div>   
                     <div className="col-sm-12" style={{ fontSize: 11, padding: 0 }}>
-                        <div className="col-sm-9"> Taxes:</div>
+                        <div className="col-sm-9"> Taxes (@10%):</div>
                         <div className="col-sm-3"> {cart.taxes}</div>
                     </div>   
                     <div className="col-sm-12" style={{ fontSize: 11, padding: 0 }}>
